@@ -1,12 +1,14 @@
 package com.vincent.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.tab.ModCreativeModeTabs;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -16,6 +18,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import org.slf4j.Logger;
 
@@ -46,14 +49,18 @@ public class TutorialMod {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        addItemsToCreativeTab(event, CreativeModeTabs.INGREDIENTS, List.of(
+        addItemToCreativeTab(event, CreativeModeTabs.INGREDIENTS, List.of(
                 ModItems.AZURITE,
                 ModItems.RAW_AZURITE
+        ));
+        addBlockToCreativeTab(event, CreativeModeTabs.BUILDING_BLOCKS, List.of(
+                ModBlocks.AZURITE_BLOCK
         ));
     }
 
@@ -67,7 +74,7 @@ public class TutorialMod {
         }
     }
 
-    public void addItemToCreativeTabs(BuildCreativeModeTabContentsEvent event,
+    public void addItemToCreativeTab(BuildCreativeModeTabContentsEvent event,
                                       List<ResourceKey<CreativeModeTab>> tabs, DeferredItem<Item> item) {
         for(ResourceKey<CreativeModeTab> tab : tabs){
             if(event.getTabKey() == tab){
@@ -76,7 +83,7 @@ public class TutorialMod {
         }
     }
 
-    public void addItemsToCreativeTab(BuildCreativeModeTabContentsEvent event,
+    public void addItemToCreativeTab(BuildCreativeModeTabContentsEvent event,
                                       ResourceKey<CreativeModeTab> tab, List<DeferredItem<Item>> items) {
         if(event.getTabKey() == tab){
             for(DeferredItem<Item> item : items){
@@ -85,12 +92,48 @@ public class TutorialMod {
         }
     }
 
-    public void addItemsToCreativeTabs(BuildCreativeModeTabContentsEvent event,
+    public void addItemToCreativeTab(BuildCreativeModeTabContentsEvent event,
                                       List<ResourceKey<CreativeModeTab>> tabs, List<DeferredItem<Item>> items) {
         for(ResourceKey<CreativeModeTab> tab : tabs){
             if(event.getTabKey() == tab){
                 for(DeferredItem<Item> item : items){
                     event.accept(item);
+                }
+            }
+        }
+    }
+
+    public void addBlockToCreativeTab(BuildCreativeModeTabContentsEvent event,
+                                     ResourceKey<CreativeModeTab> tab, DeferredBlock<Block> block) {
+        if(event.getTabKey() == tab){
+            event.accept(block);
+        }
+    }
+
+    public void addBlockToCreativeTab(BuildCreativeModeTabContentsEvent event,
+                                      List<ResourceKey<CreativeModeTab>> tabs, DeferredBlock<Block> block) {
+        for(ResourceKey<CreativeModeTab> tab : tabs){
+            if(event.getTabKey() == tab){
+                event.accept(block);
+            }
+        }
+    }
+
+    public void addBlockToCreativeTab(BuildCreativeModeTabContentsEvent event,
+                                      ResourceKey<CreativeModeTab> tab, List<DeferredBlock<Block>> blocks) {
+        if(event.getTabKey() == tab){
+            for(DeferredBlock<Block> block : blocks){
+                event.accept(block);
+            }
+        }
+    }
+
+    public void addBlockToCreativeTab(BuildCreativeModeTabContentsEvent event,
+                                      List<ResourceKey<CreativeModeTab>> tabs, List<DeferredBlock<Block>> blocks) {
+        for(ResourceKey<CreativeModeTab> tab : tabs){
+            if(event.getTabKey() == tab){
+                for(DeferredBlock<Block> block : blocks){
+                    event.accept(block);
                 }
             }
         }

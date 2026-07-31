@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod.tab;
 
 import com.vincent.tutorialmod.TutorialMod;
+import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -29,11 +30,15 @@ public class ModCreativeModeTabs {
                     .build());
 
     public static final Supplier<CreativeModeTab> AZURITE_BLOCKS_TAB = CREATIVE_MODE_TABS.register("azurite_block_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.RAW_AZURITE.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.AZURITE_BLOCK.get()))
                     .title(Component.translatable("creativetab.tutorialmod.azurite_blocks"))
                     .displayItems((_, output) -> {
-                        output.accept(ModItems.AZURITE);
-                        output.accept(ModItems.RAW_AZURITE);
+                        output.accept(ModBlocks.AZURITE_BLOCK);
+                        output.accept(ModBlocks.RAW_AZURITE_BLOCK);
+                        output.accept(ModBlocks.AZURITE_DEEPSLATE_ORE);
+                        output.accept(ModBlocks.AZURITE_END_ORE);
+                        output.accept(ModBlocks.AZURITE_NETHER_ORE);
+                        output.accept(ModBlocks.AZURITE_ORE);
                     })
                     .build());
 
