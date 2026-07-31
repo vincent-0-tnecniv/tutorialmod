@@ -1,4 +1,7 @@
 {
   "item.tutorialmod.azurite": "Azurite",
-  "item.tutorialmod.raw_azurite": "Raw Azurite"
+  "item.tutorialmod.raw_azurite": "Raw Azurite",
+
+  "creativetab.tutorialmod.azurite_items": "Azurite Tutorial Items",
+  "creativetab.tutorialmod.azurite_blocks": "Azurite Tutorial Blocks"
 }
