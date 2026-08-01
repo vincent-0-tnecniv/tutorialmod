@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "azurite",
+  "key": {
+    "X": "tutorialmod:azurite"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "id": "tutorialmod:azurite_block"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "raw_azurite",
+  "ingredients": [
+    "tutorialmod:raw_azurite_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "tutorialmod:raw_azurite"
+  }
+}
