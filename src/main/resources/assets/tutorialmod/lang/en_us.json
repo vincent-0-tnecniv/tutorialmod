@@ -1,6 +1,7 @@
 {
   "item.tutorialmod.azurite": "Azurite",
   "item.tutorialmod.raw_azurite": "Raw Azurite",
+  "item.tutorialmod.metal_detector": "Metal Detector",
 
   "block.tutorialmod.azurite_block": "Block of Azurite",
   "block.tutorialmod.azurite_deepslate_ore": "Azurite Deepslate Ore",
@@ -10,5 +11,6 @@
   "block.tutorialmod.raw_azurite_block": "Block of Raw Azurite",
 
   "creativetab.tutorialmod.azurite_items": "Azurite Tutorial Items",
-  "creativetab.tutorialmod.azurite_blocks": "Azurite Tutorial Blocks"
+  "creativetab.tutorialmod.azurite_blocks": "Azurite Tutorial Blocks",
+  "item.tutorialmod.metal_detector.no_valuables": "No valuables found!"
 }
