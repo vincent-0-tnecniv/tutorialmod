@@ -1,5 +1,6 @@
 package com.vincent.tutorialmod.item.custom;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -87,6 +88,13 @@ public class MetalDetectorItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        // This is always called on ONLY the client!
+        if(Minecraft.getInstance().hasShiftDown()){
+            builder.accept(Component.translatable("tooltip.tutorialmod.metal_detector.shift_down"));
+        } else{
+            builder.accept(Component.translatable("tooltip.tutorialmod.metal_detector"));
+        }
+
         super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
     }
 }

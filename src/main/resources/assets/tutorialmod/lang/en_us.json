@@ -19,5 +19,7 @@
   "item.tutorialmod.metal_detector.no_valuables": "No valuables found!",
 
   "tooltip.tutorialmod.onion.tooltip": "Tastes like an Onion...",
-  "tooltip.tutorialmod.magic_block.tooltip": "It's quite §9MAGICAL§r"
+  "tooltip.tutorialmod.magic_block.tooltip": "It's quite §9MAGICAL§r",
+  "tooltip.tutorialmod.metal_detector.shift_down": "Discover valuables by clicking on Blocks",
+  "tooltip.tutorialmod.metal_detector": "Press ßeShiftßr for more information"
 }
