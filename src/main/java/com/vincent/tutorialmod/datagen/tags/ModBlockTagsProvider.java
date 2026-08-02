@@ -46,6 +46,28 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_END_ORE.getKey())
                 .add(ModBlocks.AZURITE_NETHER_ORE.getKey());
 
+        // adding to non-block block sets is not STRICTLY necessary
+        // however, still good to add as convention so that other mods, if needded,
+        //  support the use of the non-block blocks
+        tag(BlockTags.STAIRS)
+                .add(ModBlocks.AZURITE_STAIRS.getKey());
+        tag(BlockTags.SLABS)
+                .add(ModBlocks.AZURITE_SLAB.getKey());
+        tag(BlockTags.PRESSURE_PLATES)
+                .add(ModBlocks.AZURITE_PRESSURE_PLATE.getKey());
+        tag(BlockTags.BUTTONS)
+                .add(ModBlocks.AZURITE_BUTTON.getKey());
+
+        // For a block family, these are MANDATORY
+//        tag(BlockTags.WOODEN_FENCES)
+//                .add(ModBlocks.AZURITE_FENCE.getKey());
+        // For wooden fences, the above tag is needed as they don't connect to those that aren't
+        tag(BlockTags.FENCES)
+                .add(ModBlocks.AZURITE_FENCE.getKey());
+        tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.AZURITE_FENCE_GATE.getKey());
+        tag(BlockTags.WALLS)
+                .add(ModBlocks.AZURITE_WALL.getKey());
     }
 
     // Use these methods for any adding of vanilla blocks

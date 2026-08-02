@@ -12,8 +12,14 @@
   "block.tutorialmod.azurite_ore": "Azurite Ore",
   "block.tutorialmod.raw_azurite_block": "Block of Raw Azurite",
   "block.tutorialmod.magic_block": "Magic Block",
+
   "block.tutorialmod.azurite_stairs": "Azurite Stairs",
   "block.tutorialmod.azurite_slab": "Azurite Slab",
+  "block.tutorialmod.azurite_pressure_plate": "Azurite Pressure Plate",
+  "block.tutorialmod.azurite_button": "Azurite Button",
+  "block.tutorialmod.azurite_fence": "Azurite Fence",
+  "block.tutorialmod.azurite_fence_gate": "Azurite Fence Gate",
+  "block.tutorialmod.azurite_wall": "Azurite Wall",
 
   "creativetab.tutorialmod.azurite_items": "Azurite Tutorial Items",
   "creativetab.tutorialmod.azurite_blocks": "Azurite Tutorial Blocks",

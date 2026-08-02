@@ -23,6 +23,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.END_FIRE_STARTER.get(), ModelTemplates.FLAT_ITEM);
 
 //        blockModels.createTrivialCube(ModBlocks.AZURITE_BLOCK.get());
+        // added with the block family
         blockModels.createTrivialCube(ModBlocks.RAW_AZURITE_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.AZURITE_DEEPSLATE_ORE.get());
         blockModels.createTrivialCube(ModBlocks.AZURITE_END_ORE.get());
@@ -32,6 +33,11 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.family(ModBlocks.AZURITE_BLOCK.get())
                 .stairs(ModBlocks.AZURITE_STAIRS.get())
-                .slab(ModBlocks.AZURITE_SLAB.get());
+                .slab(ModBlocks.AZURITE_SLAB.get())
+                .pressurePlate(ModBlocks.AZURITE_PRESSURE_PLATE.get())
+                .button(ModBlocks.AZURITE_BUTTON.get())
+                .fence(ModBlocks.AZURITE_FENCE.get())
+                .fenceGate(ModBlocks.AZURITE_FENCE_GATE.get())
+                .wall(ModBlocks.AZURITE_WALL.get());
     }
 }

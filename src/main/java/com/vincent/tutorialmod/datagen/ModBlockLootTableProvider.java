@@ -39,6 +39,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
         dropSelf(ModBlocks.AZURITE_STAIRS.get());
         add(ModBlocks.AZURITE_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ModBlocks.AZURITE_PRESSURE_PLATE.get());
+        dropSelf(ModBlocks.AZURITE_BUTTON.get());
+        dropSelf(ModBlocks.AZURITE_FENCE.get());
+        dropSelf(ModBlocks.AZURITE_FENCE_GATE.get());
+        dropSelf(ModBlocks.AZURITE_WALL.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {
