@@ -10,12 +10,17 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.NonNull;
+
+import java.util.function.Consumer;
 
 public class MetalDetectorItem extends Item {
     public MetalDetectorItem(Properties properties) {
@@ -78,5 +83,10 @@ public class MetalDetectorItem extends Item {
     private boolean isValuableBlock(BlockState blockstate) {
         return blockstate.is(Blocks.IRON_ORE) || blockstate.is(Blocks.DEEPSLATE_IRON_ORE)
                 || blockstate.is(Blocks.DIAMOND_ORE) ||  blockstate.is(Blocks.DEEPSLATE_DIAMOND_ORE);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
     }
 }

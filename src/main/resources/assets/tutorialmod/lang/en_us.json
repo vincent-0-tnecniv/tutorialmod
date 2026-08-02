@@ -15,5 +15,9 @@
 
   "creativetab.tutorialmod.azurite_items": "Azurite Tutorial Items",
   "creativetab.tutorialmod.azurite_blocks": "Azurite Tutorial Blocks",
-  "item.tutorialmod.metal_detector.no_valuables": "No valuables found!"
+
+  "item.tutorialmod.metal_detector.no_valuables": "No valuables found!",
+
+  "tooltip.tutorialmod.onion.tooltip": "Tastes like an Onion...",
+  "tooltip.tutorialmod.magic_block.tooltip": "It's quite §9MAGICAL§r"
 }

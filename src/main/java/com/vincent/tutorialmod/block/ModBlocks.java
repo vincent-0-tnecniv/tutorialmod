@@ -3,8 +3,12 @@ package com.vincent.tutorialmod.block;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.custom.MagicBlock;
 import com.vincent.tutorialmod.item.ModItems;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -13,6 +17,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModBlocks {
@@ -27,7 +32,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
     public static final DeferredBlock<Block> AZURITE_ORE =
             registerExperienceDroppingOre("azurite_ore", 2, 4,
-                    4.0f);
+                    4.0f, SoundType.STONE);
     public static final DeferredBlock<Block> AZURITE_DEEPSLATE_ORE =
             registerExperienceDroppingOre("azurite_deepslate_ore", 3, 5,
                     4.0f, SoundType.DEEPSLATE);
@@ -40,7 +45,8 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
             properties -> new MagicBlock(properties.strength(4.0F)
-                    .requiresCorrectToolForDrops().sound(SoundType.DECORATED_POT)));
+                    .requiresCorrectToolForDrops().sound(SoundType.DECORATED_POT)),
+            Component.translatable("tooltip.tutorialmod.magic_block.tooltip"));
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
@@ -60,8 +66,26 @@ public class ModBlocks {
         return toReturn;
     }
 
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function, Component... components) {
+        DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
+        registerBlockItem(name, toReturn, components);
+        return toReturn;
+    }
+
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.registerItem(name, properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+    }
+
+    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block, Component... components) {
+        ModItems.ITEMS.registerItem(name, properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()) {
+            @Override
+            public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+                for(Component component : components) {
+                    builder.accept(component);
+                }
+                super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+            }
+        });
     }
 
     public static void register(IEventBus eventBus) {
