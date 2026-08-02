@@ -29,6 +29,38 @@ public abstract class BaseRecipeProvider extends RecipeProvider {
         super(registries, output);
     }
 
+    protected void door(Block doorBlock, Block baseBlock, String groupName){
+        door(doorBlock, baseBlock);
+    }
+
+    protected void door(Block doorBlock, Block baseBlock){
+        doorBuilder(doorBlock, Ingredient.of(baseBlock));
+    }
+
+    protected void door(DeferredBlock<Block> doorBlock, DeferredBlock<Block> baseBlock, String groupName){
+        door(doorBlock.get(), baseBlock.get(), groupName);
+    }
+
+    protected void door(DeferredBlock<Block> doorBlock, DeferredBlock<Block> baseBlock){
+        door(doorBlock.get(), baseBlock.get());
+    }
+
+    protected void trapdoor(Block trapdoorBlock, Block baseBlock, String groupName){
+        trapdoor(trapdoorBlock, baseBlock);
+    }
+
+    protected void trapdoor(Block trapdoorBlock, Block baseBlock){
+        trapdoorBuilder(trapdoorBlock, Ingredient.of(baseBlock));
+    }
+
+    protected void trapdoor(DeferredBlock<Block> trapdoorBlock, DeferredBlock<Block> baseBlock, String groupName){
+        trapdoor(trapdoorBlock.get(), baseBlock.get(), groupName);
+    }
+
+    protected void trapdoor(DeferredBlock<Block> trapdoorBlock, DeferredBlock<Block> baseBlock){
+        trapdoor(trapdoorBlock.get(), baseBlock.get());
+    }
+
     protected void pressurePlate(DeferredBlock<Block> pressurePlateBlock, DeferredBlock<Block> baseBlock) {
         pressurePlate(pressurePlateBlock.get(), baseBlock.get());
     }

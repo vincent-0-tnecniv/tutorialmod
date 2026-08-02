@@ -44,6 +44,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.AZURITE_FENCE.get());
         dropSelf(ModBlocks.AZURITE_FENCE_GATE.get());
         dropSelf(ModBlocks.AZURITE_WALL.get());
+        dropSelf(ModBlocks.AZURITE_TRAPDOOR.get());
+        add(ModBlocks.AZURITE_DOOR.get(), this::createDoorTable);
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {

@@ -81,6 +81,14 @@ public class ModBlocks {
             properties -> new WallBlock(properties.strength(2f)
                     .requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
+    public static final DeferredBlock<Block> AZURITE_DOOR = registerBlock("azurite_door",
+            properties -> new DoorBlock(BlockSetType.IRON, properties.strength(2f)
+                    .requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));
+
+    public static final DeferredBlock<Block> AZURITE_TRAPDOOR = registerBlock("azurite_trapdoor",
+            properties -> new TrapDoorBlock(BlockSetType.IRON, properties.strength(2f)
+                    .requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));
+
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
                 properties -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), properties.strength(strength)

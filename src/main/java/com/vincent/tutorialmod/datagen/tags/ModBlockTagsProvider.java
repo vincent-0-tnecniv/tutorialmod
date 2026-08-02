@@ -57,6 +57,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_PRESSURE_PLATE.getKey());
         tag(BlockTags.BUTTONS)
                 .add(ModBlocks.AZURITE_BUTTON.getKey());
+        tag(BlockTags.DOORS)
+                .add(ModBlocks.AZURITE_DOOR.getKey());
+        tag(BlockTags.TRAPDOORS)
+                .add(ModBlocks.AZURITE_TRAPDOOR.getKey());
+
 
         // For a block family, these are MANDATORY
 //        tag(BlockTags.WOODEN_FENCES)
