@@ -1,6 +1,8 @@
 package com.vincent.tutorialmod;
 
 import com.vincent.tutorialmod.datagen.*;
+import com.vincent.tutorialmod.datagen.tags.ModBlockTagsProvider;
+import com.vincent.tutorialmod.datagen.tags.ModItemTagsProvider;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -19,14 +21,15 @@ public class TutorialModDataGen {
     @SubscribeEvent
     public static void gatherClientData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
-        PackOutput output = generator.getPackOutput();
+        PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(true, new ModModelProvider(output));
-        generator.addProvider(true, new ModBlockTagsProvider(output, lookupProvider));
-        generator.addProvider(true, new LootTableProvider(output, Collections.emptySet(),
+        generator.addProvider(true, new ModModelProvider(packOutput));
+        generator.addProvider(true, new ModBlockTagsProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModItemTagsProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
-        generator.addProvider(true, new ModRecipeProvider.Runner(output, lookupProvider));
-        generator.addProvider(true, new ModDataMapProvider(output, lookupProvider));
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        generator.addProvider(true, new ModDataMapProvider(packOutput, lookupProvider));
     }
 }

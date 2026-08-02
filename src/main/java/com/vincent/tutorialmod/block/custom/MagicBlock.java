@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod.block.custom;
 
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.tags.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
@@ -51,6 +52,6 @@ public class MagicBlock extends Block {
     }
 
     private boolean isValidItem(ItemStack item) {
-        return item.is(Items.IRON_INGOT) || item.is(Items.REDSTONE) || item.is(ModItems.AZURITE);
+        return item.is(ModTags.Items.TRANSFORMABLE_ITEMS);
     }
 }
