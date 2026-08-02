@@ -65,6 +65,9 @@ public class ModRecipeProvider extends BaseRecipeProvider {
         stairs(ModBlocks.AZURITE_STAIRS, ModBlocks.AZURITE_BLOCK, "azurite");
         slab(ModBlocks.AZURITE_SLAB, ModBlocks.AZURITE_BLOCK, "azurite");
         button(ModBlocks.AZURITE_BUTTON, ModBlocks.AZURITE_BLOCK, "azurite");
-        pressurePlate(ModBlocks.AZURITE_PRESSURE_PLATE, ModBlocks.AZURITE_BLOCK, "azurite");
+        pressurePlate(ModBlocks.AZURITE_PRESSURE_PLATE, ModBlocks.AZURITE_BLOCK);
+        fence(ModBlocks.AZURITE_FENCE, ModBlocks.AZURITE_BLOCK, "azurite");
+        fenceGate(ModBlocks.AZURITE_FENCE_GATE, ModBlocks.AZURITE_BLOCK, "azurite");
+        wall(ModBlocks.AZURITE_WALL, ModBlocks.AZURITE_BLOCK,  "azurite");
     }
 }

@@ -7,6 +7,7 @@
 package com.vincent.tutorialmod.util;
 
 import com.vincent.tutorialmod.TutorialMod;
+import com.vincent.tutorialmod.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -28,20 +29,16 @@ public abstract class BaseRecipeProvider extends RecipeProvider {
         super(registries, output);
     }
 
-    protected void pressurePlate(Block pressurePlateBlock, Block baseBlock, String groupName){
-        pressurePlateBuilder(RecipeCategory.BUILDING_BLOCKS, pressurePlateBlock, Ingredient.of(baseBlock));
-    }
-
-    protected void pressurePlate(Block pressurePlateBlock, Block baseBlock){
-        pressurePlateBuilder(RecipeCategory.BUILDING_BLOCKS, pressurePlateBlock, Ingredient.of(baseBlock));
-    }
-
-    protected void pressurePlate(DeferredBlock<Block> pressurePlateBlock, DeferredBlock<Block> baseBlock, String groupName){
-        pressurePlate(pressurePlateBlock.get(),  baseBlock.get(), groupName);
-    }
-
-    protected void pressurePlate(DeferredBlock<Block> pressurePlateBlock, DeferredBlock<Block> baseBlock){
+    protected void pressurePlate(DeferredBlock<Block> pressurePlateBlock, DeferredBlock<Block> baseBlock) {
         pressurePlate(pressurePlateBlock.get(), baseBlock.get());
+    }
+
+    protected void pressurePlate(DeferredBlock<Block> pressurePlateBlock, DeferredBlock<Block> baseBlock, String groupName) {
+        pressurePlate(pressurePlateBlock, baseBlock);
+    }
+
+    protected void pressurePlate(Block pressurePlateBlock, Block baseBlock, String groupName) {
+        pressurePlate(pressurePlateBlock, baseBlock);
     }
 
     protected void slab(Block pressurePlateBlock, Block baseBlock, String groupName){
@@ -81,6 +78,54 @@ public abstract class BaseRecipeProvider extends RecipeProvider {
 
     protected void stairs(DeferredBlock<Block> stairBlock, DeferredBlock<Block> baseBlock){
         stairs(stairBlock.get(), baseBlock.get());
+    }
+
+    protected void fence(Block fenceBlock, Block baseBlock, String groupName) {
+        fenceBuilder(fenceBlock, Ingredient.of(baseBlock)).unlockedBy(getHasName(baseBlock), has(baseBlock)).group(groupName).save(output);
+    }
+
+    protected void fence(Block fenceBlock, Block baseBlock) {
+        fenceBuilder(fenceBlock, Ingredient.of(baseBlock)).unlockedBy(getHasName(baseBlock), has(baseBlock)).save(output);
+    }
+
+    protected void fence(DeferredBlock<Block> fenceBlock, DeferredBlock<Block> baseBlock, String groupName) {
+        fence(fenceBlock.get(), baseBlock.get(), groupName);
+    }
+
+    protected void fence(DeferredBlock<Block> fenceBlock, DeferredBlock<Block> baseBlock) {
+        fence(fenceBlock.get(), baseBlock.get());
+    }
+
+    protected void fenceGate(Block fenceGateBlock, Block baseBlock, String groupName) {
+        fenceGateBuilder(fenceGateBlock, Ingredient.of(baseBlock)).unlockedBy(getHasName(baseBlock), has(baseBlock)).group(groupName).save(output);
+    }
+
+    protected void fenceGate(Block fenceGateBlock, Block baseBlock) {
+        fenceGateBuilder(fenceGateBlock, Ingredient.of(baseBlock)).unlockedBy(getHasName(baseBlock), has(baseBlock)).save(output);
+    }
+
+    protected void fenceGate(DeferredBlock<Block> fenceGateBlock, DeferredBlock<Block> baseBlock, String groupName) {
+        fenceGate(fenceGateBlock.get(), baseBlock.get(), groupName);
+    }
+
+    protected void fenceGate(DeferredBlock<Block> fenceGateBlock, DeferredBlock<Block> baseBlock) {
+        fenceGate(fenceGateBlock.get(), baseBlock.get());
+    }
+
+    protected void wall(DeferredBlock<Block> wallBlock, DeferredBlock<Block> baseBlock, String groupName) {
+        wall(wallBlock.get(), baseBlock.get());
+    }
+
+    protected void wall(Block wallBlock, Block baseBlock, String groupName) {
+        wall(wallBlock, baseBlock);
+    }
+
+    protected void wall(Block wallBlock, Block baseBlock) {
+        wall(RecipeCategory.BUILDING_BLOCKS, wallBlock, baseBlock);
+    }
+
+    protected void wall(DeferredBlock<Block> wallBlock, DeferredBlock<Block> baseBlock) {
+        wall(wallBlock.get(), baseBlock.get());
     }
 
     public void registerBlockToItemRecipes(DeferredBlock<Block> block, DeferredItem<Item> item, String groupName) {
