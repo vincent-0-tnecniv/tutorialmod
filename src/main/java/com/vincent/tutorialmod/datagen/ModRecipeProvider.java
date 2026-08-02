@@ -60,6 +60,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 2.25f, 1800, "azurite");
         oreBlasting(List.of(ModBlocks.RAW_AZURITE_BLOCK), RecipeCategory.MISC, CookingBookCategory.MISC, ModBlocks.AZURITE_BLOCK.get(),
                 2.25f, 900, "azurite");
+
+        stairs(ModBlocks.AZURITE_STAIRS.get(), ModBlocks.AZURITE_BLOCK.get(), "azurite");
+        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZURITE_SLAB.get(), ModBlocks.AZURITE_BLOCK.get());
+    }
+
+    protected void stairs(Block stairBlock, Block baseBlock, String groupName){
+        stairBuilder(stairBlock, Ingredient.of(baseBlock)).unlockedBy(getHasName(baseBlock), has(baseBlock)).group(groupName).save(output);
+    }
+
+    protected void stairs(Block stairBlock, Block baseBlock){
+        stairBuilder(stairBlock, Ingredient.of(baseBlock)).unlockedBy(getHasName(baseBlock), has(baseBlock)).save(output);
     }
 
     @Override

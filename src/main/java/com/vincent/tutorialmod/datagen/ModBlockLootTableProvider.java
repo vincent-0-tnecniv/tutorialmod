@@ -37,6 +37,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.AZURITE_END_ORE.get(),
                 createMultipleOreDrops(ModBlocks.AZURITE_NETHER_ORE.get(), ModItems.RAW_AZURITE.get(), 4, 7));
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
+        dropSelf(ModBlocks.AZURITE_STAIRS.get());
+        add(ModBlocks.AZURITE_SLAB.get(), this::createSlabItemTable);
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {
