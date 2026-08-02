@@ -1,9 +1,6 @@
 package com.vincent.tutorialmod;
 
-import com.vincent.tutorialmod.datagen.ModBlockLootTableProvider;
-import com.vincent.tutorialmod.datagen.ModBlockTagsProvider;
-import com.vincent.tutorialmod.datagen.ModModelProvider;
-import com.vincent.tutorialmod.datagen.ModRecipeProvider;
+import com.vincent.tutorialmod.datagen.*;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -30,5 +27,6 @@ public class TutorialModDataGen {
         generator.addProvider(true, new LootTableProvider(output, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
         generator.addProvider(true, new ModRecipeProvider.Runner(output, lookupProvider));
+        generator.addProvider(true, new ModDataMapProvider(output, lookupProvider));
     }
 }
