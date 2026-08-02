@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod.block;
 
 import com.vincent.tutorialmod.TutorialMod;
+import com.vincent.tutorialmod.block.custom.MagicBlock;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -36,6 +37,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> AZURITE_END_ORE =
             registerExperienceDroppingOre("azurite_end_ore", 2, 4,
                     4.0f, SoundType.STONE);
+
+    public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
+            properties -> new MagicBlock(properties.strength(4.0F)
+                    .requiresCorrectToolForDrops().sound(SoundType.DECORATED_POT)));
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,

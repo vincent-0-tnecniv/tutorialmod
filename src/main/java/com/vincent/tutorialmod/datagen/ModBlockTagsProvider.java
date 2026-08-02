@@ -23,7 +23,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_ORE.getKey())
                 .add(ModBlocks.AZURITE_NETHER_ORE.getKey())
                 .add(ModBlocks.AZURITE_DEEPSLATE_ORE.getKey())
-                .add(ModBlocks.AZURITE_END_ORE.getKey());
+                .add(ModBlocks.AZURITE_END_ORE.getKey())
+                .add(ModBlocks.MAGIC_BLOCK.getKey());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.AZURITE_DEEPSLATE_ORE.getKey());
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
