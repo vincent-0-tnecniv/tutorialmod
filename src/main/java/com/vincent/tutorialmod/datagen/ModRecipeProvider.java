@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -71,5 +72,13 @@ public class ModRecipeProvider extends BaseRecipeProvider {
         wall(ModBlocks.AZURITE_WALL, ModBlocks.AZURITE_BLOCK,  "azurite");
         door(ModBlocks.AZURITE_DOOR, ModBlocks.AZURITE_BLOCK, "azurite");
         trapdoor(ModBlocks.AZURITE_TRAPDOOR, ModBlocks.AZURITE_BLOCK, "azurite");
+
+        allTools(ModItems.AZURITE_SWORD, ModItems.AZURITE_PICKAXE, ModItems.AZURITE_AXE,
+                ModItems.AZURITE_SHOVEL, ModItems.AZURITE_HOE, ModItems.AZURITE_SPEAR,
+                ModItems.AZURITE, null);
+
+        allArmor(ModItems.AZURITE_HELMET, ModItems.AZURITE_CHESTPLATE,
+                ModItems.AZURITE_LEGGINGS, ModItems.AZURITE_BOOTS,
+                ModItems.AZURITE);
     }
 }

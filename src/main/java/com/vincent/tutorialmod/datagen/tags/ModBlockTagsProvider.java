@@ -73,6 +73,14 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_FENCE_GATE.getKey());
         tag(BlockTags.WALLS)
                 .add(ModBlocks.AZURITE_WALL.getKey());
+
+        tag(ModTags.Blocks.NEEDS_AZURITE_TOOL)
+                .add(ModBlocks.MAGIC_BLOCK.getKey())
+                .addTag(BlockTags.NEEDS_IRON_TOOL);
+
+        tag(ModTags.Blocks.INCORRECT_FOR_AZURITE_TOOL)
+                .remove(ModBlocks.MAGIC_BLOCK.getKey())
+                .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL);
     }
 
     // Use these methods for any adding of vanilla blocks

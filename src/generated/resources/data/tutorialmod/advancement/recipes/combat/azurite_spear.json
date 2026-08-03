@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_azurite_spear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tutorialmod:azurite_spear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tutorialmod:azurite_spear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_azurite_spear"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tutorialmod:azurite_spear"
+    ]
+  }
+}

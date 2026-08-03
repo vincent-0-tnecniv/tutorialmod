@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_azurite_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tutorialmod:azurite_axe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tutorialmod:azurite_axe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_azurite_axe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tutorialmod:azurite_axe"
+    ]
+  }
+}

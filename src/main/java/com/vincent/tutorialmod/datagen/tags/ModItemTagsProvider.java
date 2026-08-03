@@ -3,18 +3,15 @@ package com.vincent.tutorialmod.datagen.tags;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.tags.ModTags;
+import com.vincent.tutorialmod.util.BaseItemTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class ModItemTagsProvider extends ItemTagsProvider {
+public class ModItemTagsProvider extends BaseItemTagsProvider {
     public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider, TutorialMod.MOD_ID);
     }
@@ -29,23 +26,13 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             ));
         tag(ModTags.Items.TRANSFORMABLE_ITEMS)
                 .add(ModItems.AZURITE.getKey());
-    }
+        tag(ModTags.Items.AZURITE_REPAIRABLE)
+                .add(ModItems.AZURITE.getKey());
 
-    protected void addToTag(TagKey<Item> tag, Item item) {
-        ResourceKey<Item> key = item.builtInRegistryHolder().getKey();
-        if(key == null) {
-            throw new NullPointerException(item.getDescriptionId() + " not found in registry");
-        }
-        tag(tag).add(key);
-    }
+        allTools(ModItems.AZURITE_SWORD, ModItems.AZURITE_PICKAXE, ModItems.AZURITE_AXE,
+                ModItems.AZURITE_SHOVEL, ModItems.AZURITE_HOE, ModItems.AZURITE_SPEAR);
 
-    protected void addToTag(TagKey<Item> tag, List<Item> items) {
-        for(Item item : items) {
-            if(item.builtInRegistryHolder().getKey() == null) {
-                throw new NullPointerException(item.getDescriptionId() + " not found in registry");
-            }
-            addToTag(tag, item);
-        }
+        allArmor(ModItems.AZURITE_HELMET, ModItems.AZURITE_CHESTPLATE,
+                ModItems.AZURITE_LEGGINGS, ModItems.AZURITE_BOOTS, true);
     }
-
 }
