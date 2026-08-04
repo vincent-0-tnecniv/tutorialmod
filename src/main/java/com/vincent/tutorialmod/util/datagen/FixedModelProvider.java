@@ -3,15 +3,12 @@
  * This helper parent class fixes some problems in the ModelProvider.java class, and is used by the ModRecipeProvider
  * For that class, refer to ModModelProvider.java
  * */
-package com.vincent.tutorialmod.util;
+package com.vincent.tutorialmod.util.datagen;
 
-import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.Item;
 
 public class FixedModelProvider extends ModelProvider {
     public FixedModelProvider(PackOutput output, String modId) {

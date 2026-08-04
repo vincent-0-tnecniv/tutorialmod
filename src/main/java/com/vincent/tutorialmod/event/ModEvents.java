@@ -4,9 +4,9 @@ import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.util.SlotGetHelper;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
@@ -31,10 +31,16 @@ public class ModEvents {
 
     }
     @SubscribeEvent
-    public static void livingDamage(LivingIncomingDamageEvent event) {
+    public static void livingEntityTakeDamage(LivingIncomingDamageEvent event) {
         // added by vincent00tencniv: adding a flat 50% damage reduction if wearing the full azurite armor
         if(event.getEntity() instanceof Player player && hasFullAzurite(player)) {
             event.setAmount(event.getAmount() * 0.5f);
+        }
+        if(event.getEntity() instanceof Player player && isHoldingSword(player) && player.isUsingItem()) {
+            // player is right clicking with a sword - a parry
+            event.setCanceled(true);
+            player.getCooldowns().addCooldown(player.getActiveItem(), 20);
+
         }
     }
 
@@ -43,5 +49,9 @@ public class ModEvents {
                 SlotGetHelper.isHelmet(player, ModItems.AZURITE_HELMET) &&
                 SlotGetHelper.isChestplate(player, ModItems.AZURITE_CHESTPLATE) &&
                 SlotGetHelper.isLeggings(player, ModItems.AZURITE_LEGGINGS);
+    }
+
+    private static boolean isHoldingSword(Player player) {
+        return player.getMainHandItem().getItem().builtInRegistryHolder().is(ItemTags.SWORDS);
     }
 }

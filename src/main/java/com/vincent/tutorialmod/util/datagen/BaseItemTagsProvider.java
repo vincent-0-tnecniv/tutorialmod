@@ -1,4 +1,4 @@
-package com.vincent.tutorialmod.util;
+package com.vincent.tutorialmod.util.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

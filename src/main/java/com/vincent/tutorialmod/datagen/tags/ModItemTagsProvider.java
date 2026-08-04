@@ -3,7 +3,7 @@ package com.vincent.tutorialmod.datagen.tags;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.tags.ModTags;
-import com.vincent.tutorialmod.util.BaseItemTagsProvider;
+import com.vincent.tutorialmod.util.datagen.BaseItemTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;

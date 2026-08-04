@@ -4,10 +4,9 @@
 * For that class, refer to ModRecipeProvider.java
 * */
 
-package com.vincent.tutorialmod.util;
+package com.vincent.tutorialmod.util.datagen;
 
 import com.vincent.tutorialmod.TutorialMod;
-import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;

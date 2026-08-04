@@ -3,7 +3,7 @@
  * This helper parent class fixes some problems in the ModelProvider.java class, and is used by the ModRecipeProvider
  * For that class, refer to ModModelProvider.java
  * */
-package com.vincent.tutorialmod.util;
+package com.vincent.tutorialmod.util.datagen;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;

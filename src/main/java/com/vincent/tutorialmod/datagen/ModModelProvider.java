@@ -6,12 +6,10 @@ import com.vincent.tutorialmod.block.custom.AzuriteLampBlock;
 import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.item.ModArmorMaterials;
 import com.vincent.tutorialmod.item.ModItems;
-import com.vincent.tutorialmod.util.FixedBlockModelGenerators;
-import com.vincent.tutorialmod.util.FixedItemModelGenerators;
-import com.vincent.tutorialmod.util.FixedModelProvider;
+import com.vincent.tutorialmod.util.datagen.FixedBlockModelGenerators;
+import com.vincent.tutorialmod.util.datagen.FixedItemModelGenerators;
+import com.vincent.tutorialmod.util.datagen.FixedModelProvider;
 import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.*;
@@ -19,11 +17,9 @@ import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.Optional;
@@ -56,6 +52,7 @@ public class ModModelProvider extends FixedModelProvider {
         // Because of the custom changes in the FixedItemModelGernator class,
         // only calling the generateBow() method will work once and for all
 
+        itemModels.declareCustomModelItem(ModItems.BLIZZARD_STAFF.get());
 
 //        blockModels.createTrivialCube(ModBlocks.AZURITE_BLOCK.get());
         // added with the block family

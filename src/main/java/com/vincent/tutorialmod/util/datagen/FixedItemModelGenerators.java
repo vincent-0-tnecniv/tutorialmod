@@ -1,6 +1,5 @@
-package com.vincent.tutorialmod.util;
+package com.vincent.tutorialmod.util.datagen;
 
-import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.model.ModelInstance;
