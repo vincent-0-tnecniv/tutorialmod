@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.item;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.food.ModFoods;
+import com.vincent.tutorialmod.item.custom.DataTabletItem;
 import com.vincent.tutorialmod.item.custom.MetalDetectorItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
@@ -59,6 +60,12 @@ public class ModItems {
 
     public static final DeferredItem<Item> AZURITE_HORSE_ARMOR = ITEMS.registerItem("azurite_horse_armor",
             properties -> new Item(properties.horseArmor(ModArmorMaterials.AZURITE_ARMOR_MATERIAL)));
+
+    public static final DeferredItem<Item> DATA_TABLET = ITEMS.registerItem("data_tablet",
+            properties -> new DataTabletItem(properties.stacksTo(1)));
+
+    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
+            properties -> new BowItem(properties.durability(500)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

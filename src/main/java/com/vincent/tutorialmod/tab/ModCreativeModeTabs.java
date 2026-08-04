@@ -40,6 +40,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.AZURITE_LEGGINGS);
                         output.accept(ModItems.AZURITE_BOOTS);
                         output.accept(ModItems.AZURITE_HORSE_ARMOR);
+                        output.accept(ModItems.DATA_TABLET);
+                        output.accept(ModItems.KAUPEN_BOW);
                     })
                     .build());
 
@@ -63,6 +65,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.AZURITE_WALL);
                         output.accept(ModBlocks.AZURITE_DOOR);
                         output.accept(ModBlocks.AZURITE_TRAPDOOR);
+                        output.accept(ModBlocks.AZURITE_LAMP);
                     })
                     .build());
 

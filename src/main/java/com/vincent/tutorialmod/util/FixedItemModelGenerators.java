@@ -43,4 +43,16 @@ public class FixedItemModelGenerators extends ItemModelGenerators {
     public void generateTrimmableArmor(ResourceKey<EquipmentAsset> key, DeferredItem<Item> helmetItem, DeferredItem<Item> chestplateItem, DeferredItem<Item> leggingsItem, DeferredItem<Item> bootsItem, boolean hasDyedLayer) {
         generateTrimmableArmor(key, helmetItem.get(), chestplateItem.get(), leggingsItem.get(), bootsItem.get(), hasDyedLayer);
     }
+
+    @Override
+    public void generateBow(Item item) {
+        this.createFlatItemModel(item, ModelTemplates.BOW);
+        super.generateBow(item);
+    }
+
+    @Override
+    public void generateCrossbow(Item item) {
+        this.createFlatItemModel(item, ModelTemplates.CROSSBOW);
+        super.generateCrossbow(item);
+    }
 }

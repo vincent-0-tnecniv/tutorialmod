@@ -1,5 +1,7 @@
 package com.vincent.tutorialmod.item.custom;
 
+import com.vincent.tutorialmod.data.ModDataComponents;
+import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.tags.ModTags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -51,6 +53,8 @@ public class MetalDetectorItem extends Item {
 
                     spawnFoundParticles(level, positionClicked, blockstate);
 
+                    addDataToDataTablet(player, positionClicked.below(i));
+
                     break;
                 }
             }
@@ -61,6 +65,17 @@ public class MetalDetectorItem extends Item {
         }
 
         return InteractionResult.SUCCESS;
+    }
+
+    private void addDataToDataTablet(Player player, BlockPos position) {
+        int slotIndex = player.getInventory().findSlotMatchingItem(new ItemStack(ModItems.DATA_TABLET.get()));
+        // As the ItemStack to be found is a new item stack,
+        // the finding with ignore any data tablets with coordinates
+        if(slotIndex == -1) {
+            return;
+        }
+        ItemStack dataTablet = player.getInventory().getItem(slotIndex);
+        dataTablet.set(ModDataComponents.COORDINATES, position);
     }
 
     private void spawnFoundParticles(Level level, BlockPos positionClicked, BlockState blockstate) {

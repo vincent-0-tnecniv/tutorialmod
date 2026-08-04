@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod.block;
 
 import com.vincent.tutorialmod.TutorialMod;
+import com.vincent.tutorialmod.block.custom.AzuriteLampBlock;
 import com.vincent.tutorialmod.block.custom.MagicBlock;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.network.chat.Component;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
@@ -88,6 +90,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> AZURITE_TRAPDOOR = registerBlock("azurite_trapdoor",
             properties -> new TrapDoorBlock(BlockSetType.IRON, properties.strength(2f)
                     .requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));
+
+    public static final DeferredBlock<Block> AZURITE_LAMP = registerBlock("azurite_lamp",
+            properties -> new AzuriteLampBlock(properties.strength(2f)
+                    .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(AzuriteLampBlock.CLICKED) ? 15 : 0)));
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,

@@ -2,6 +2,7 @@ package com.vincent.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.tab.ModCreativeModeTabs;
 import net.minecraft.resources.ResourceKey;
@@ -36,7 +37,7 @@ public class TutorialMod {
 
         NeoForge.EVENT_BUS.register(this);
 
-        registerModFunctionalities(modEventBus);
+        TutorialMod.registerModFunctionalities(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -45,11 +46,12 @@ public class TutorialMod {
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    private void registerModFunctionalities(IEventBus modEventBus) {
+    public static void registerModFunctionalities(IEventBus modEventBus) {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModDataComponents.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}
