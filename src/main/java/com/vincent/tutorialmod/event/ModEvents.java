@@ -37,7 +37,7 @@ public class ModEvents {
             event.setAmount(event.getAmount() * 0.5f);
         }
         if(event.getEntity() instanceof Player player && isHoldingSword(player) && player.isUsingItem()) {
-            // player is right clicking with a sword - a parry
+            // player is right-clicking with a sword - a parry
             event.setCanceled(true);
             player.getCooldowns().addCooldown(player.getActiveItem(), 20);
 
