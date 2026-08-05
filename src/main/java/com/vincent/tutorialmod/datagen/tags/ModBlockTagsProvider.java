@@ -87,6 +87,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(BlockTags.CROPS)
                 .add(ModBlocks.getRK(ModBlocks.ONION_CROP));
+        // make blocks placable on farmland
     }
 
     // Use these methods for any adding of vanilla blocks

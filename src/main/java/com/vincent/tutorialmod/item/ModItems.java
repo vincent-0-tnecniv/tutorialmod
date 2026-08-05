@@ -79,6 +79,9 @@ public class ModItems {
     public static final DeferredItem<Item> GOJI_BERRIES = ITEMS.registerItem("goji_berries",
             properties -> new BlockItem(ModBlocks.GOJI_BERRY_BUSH.get(), properties.food(ModFoods.GOJI_BERRIES, ModFoods.GOJI_BERRIES_CONSUMABLE)));
 
+    public static final DeferredItem<Item> RICE_SHOOT = ITEMS.registerItem("rice_shoot",
+            properties -> new PlaceOnWaterBlockItem(ModBlocks.RICE_CROP.get(), properties));
+
     public static ResourceKey<Item> getRK(Item item) {
         return BuiltInRegistries.ITEM.getResourceKey(item).get();
     }

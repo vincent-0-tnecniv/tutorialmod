@@ -22,6 +22,8 @@ public class ModDataMapProvider extends DataMapProvider {
 
         builder(NeoForgeDataMaps.COMPOSTABLES)
                 .add(ModItems.ONION_SEEDS.getId(), new Compostable(0.3f), false)
-                .add(ModItems.ONION.getId(), new Compostable(0.5f), false);
+                .add(ModItems.ONION.getId(), new Compostable(0.5f), false)
+                .add(ModItems.GOJI_BERRIES.getId(), new Compostable(0.3f), false)
+                .add(ModItems.RICE_SHOOT.getId(), new Compostable(0.3f), false);
     }
 }

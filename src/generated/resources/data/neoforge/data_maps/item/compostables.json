@@ -1,9 +1,15 @@
 {
   "values": {
+    "tutorialmod:goji_berries": {
+      "chance": 0.3
+    },
     "tutorialmod:onion": {
       "chance": 0.5
     },
     "tutorialmod:onion_seeds": {
+      "chance": 0.3
+    },
+    "tutorialmod:rice_shoot": {
       "chance": 0.3
     }
   }

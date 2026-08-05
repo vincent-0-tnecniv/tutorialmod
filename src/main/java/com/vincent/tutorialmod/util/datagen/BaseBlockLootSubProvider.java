@@ -1,5 +1,8 @@
 package com.vincent.tutorialmod.util.datagen;
 
+import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.block.custom.OnionCropBlock;
+import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -9,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -41,5 +45,40 @@ public abstract class BaseBlockLootSubProvider extends BlockLootSubProvider {
 
     protected void addBerry(Block block, DeferredItem<Item> item) {
         addBerry(block, item.get());
+    }
+
+    protected void addCrop(Item harvest, Item seeds, Block cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        add(cropBlock, createCropDrops(cropBlock,
+                harvest, seeds,
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(cropBlock)
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(determiningProperty, maxAge))));
+    }
+
+    protected void addCrop(DeferredItem<Item> harvest, Item seeds, Block cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        addCrop(harvest.get(), seeds, cropBlock, determiningProperty, maxAge);
+    }
+
+    protected void addCrop(Item harvest, DeferredItem<Item> seeds, Block cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        addCrop(harvest, seeds.get(), cropBlock, determiningProperty, maxAge);
+    }
+
+    protected void addCrop(Item harvest, Item seeds, DeferredBlock<Block> cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        addCrop(harvest, seeds, cropBlock.get(), determiningProperty, maxAge);
+    }
+
+    protected void addCrop(DeferredItem<Item> harvest, DeferredItem<Item> seeds, Block cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        addCrop(harvest.get(), seeds.get(), cropBlock, determiningProperty, maxAge);
+    }
+
+    protected void addCrop(DeferredItem<Item> harvest, Item seeds, DeferredBlock<Block> cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        addCrop(harvest.get(), seeds, cropBlock.get(), determiningProperty, maxAge);
+    }
+
+    protected void addCrop(Item harvest, DeferredItem<Item> seeds, DeferredBlock<Block> cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        addCrop(harvest, seeds.get(), cropBlock.get(), determiningProperty, maxAge);
+    }
+
+    protected void addCrop(DeferredItem<Item> harvest, DeferredItem<Item> seeds, DeferredBlock<Block> cropBlock, IntegerProperty determiningProperty, int maxAge) {
+        addCrop(harvest.get(), seeds.get(), cropBlock.get(), determiningProperty, maxAge);
     }
 }

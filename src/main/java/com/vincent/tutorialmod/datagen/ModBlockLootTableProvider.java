@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.datagen;
 
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.block.custom.OnionCropBlock;
+import com.vincent.tutorialmod.block.custom.RiceCropBlock;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.util.datagen.BaseBlockLootSubProvider;
 import net.minecraft.advancements.predicates.StatePropertiesPredicate;
@@ -57,12 +58,11 @@ public class ModBlockLootTableProvider extends BaseBlockLootSubProvider {
         dropSelf(ModBlocks.AZURITE_LAMP.get());
         dropSelf(ModBlocks.PEDESTAL.get());
 
-        add(ModBlocks.ONION_CROP.get(), createCropDrops(ModBlocks.ONION_CROP.get(),
-                ModItems.ONION.get(), ModItems.ONION_SEEDS.get(),
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.ONION_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OnionCropBlock.AGE, 3))));
+        addCrop(ModItems.ONION, ModItems.ONION_SEEDS, ModBlocks.ONION_CROP, OnionCropBlock.AGE, 3);
 
         addBerry(ModBlocks.GOJI_BERRY_BUSH, ModItems.GOJI_BERRIES);
+
+        addCrop(ModItems.RICE_SHOOT, ModItems.RICE_SHOOT, ModBlocks.RICE_CROP, RiceCropBlock.AGE, 7);
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {

@@ -24,6 +24,7 @@
 
   "item.tutorialmod.onion_seeds": "Onion Seeds",
   "item.tutorialmod.goji_berries": "Goji Berries",
+  "item.tutorialmod.rice_shoot": "Rice Shoot",
 
   "block.tutorialmod.azurite_block": "Block of Azurite",
   "block.tutorialmod.azurite_deepslate_ore": "Azurite Deepslate Ore",
@@ -37,6 +38,7 @@
 
   "block.tutorialmod.onion_crop": "Onion Crop",
   "block.tutorialmod.goji_berry_bush": "Goji Berry Bush",
+  "block.tutorialmod.rice_crop": "Rice Crop",
 
   "block.tutorialmod.azurite_stairs": "Azurite Stairs",
   "block.tutorialmod.azurite_slab": "Azurite Slab",
@@ -66,5 +68,8 @@
   "painting.tutorialmod.saw_them.author": "NanoAttack",
 
   "stat.tutorialmod.valuables_found": "Valuables Found",
-  "stat.tutorialmod.times_parried": "Times Parried"
+  "stat.tutorialmod.times_parried": "Times Parried",
+
+  "sounds.tutorialmod.valuables_found": "Valuables Found",
+  "sounds.tutorialmod.valuables_not_found": "Valuables Not Found"
 }

@@ -108,6 +108,12 @@ public class ModBlocks {
                     .randomTicks().noCollision()
                     .pushReaction(PushReaction.DESTROY).sound(SoundType.SWEET_BERRY_BUSH)));
 
+    public static final DeferredBlock<Block> RICE_CROP = registerBlockWithoutItem("rice_crop",
+            properties -> new RiceCropBlock(properties
+                    .randomTicks().instabreak().noCollision()
+                    .pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
+
+
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
                 properties -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), properties.strength(strength)

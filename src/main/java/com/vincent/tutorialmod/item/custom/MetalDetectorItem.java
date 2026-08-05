@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.item.custom;
 
 import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.sound.ModSounds;
 import com.vincent.tutorialmod.stat.ModStats;
 import com.vincent.tutorialmod.tags.ModTags;
 import net.minecraft.client.Minecraft;
@@ -10,7 +11,6 @@ import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -21,7 +21,6 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.NonNull;
 
@@ -49,8 +48,8 @@ public class MetalDetectorItem extends Item {
 
                     context.getItemInHand().hurtAndBreak(1, player, context.getHand());
 
-                    level.playSound(null, positionClicked, SoundEvents.AMETHYST_BLOCK_CHIME,
-                            SoundSource.BLOCKS, 1.5f, 1f);
+                    level.playSound(null, positionClicked, ModSounds.VALUABLES_FOUND.get(),
+                            SoundSource.BLOCKS, 1.5f, 0.8F + level.getRandom().nextFloat() * 0.4F);
 
                     spawnFoundParticles(level, positionClicked, blockstate);
 
@@ -64,6 +63,8 @@ public class MetalDetectorItem extends Item {
 
             if(!foundBlock){
                 outputNoValuablesFound(player);
+                level.playSound(null, positionClicked, ModSounds.VALUABLES_NOT_FOUND.get(),
+                        SoundSource.BLOCKS, 1.5f, 0.8F + level.getRandom().nextFloat() * 0.4F);
             }
         }
 
