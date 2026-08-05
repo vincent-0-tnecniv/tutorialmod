@@ -1,7 +1,9 @@
 package com.vincent.tutorialmod.datagen;
 
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.block.custom.OnionCropBlock;
 import com.vincent.tutorialmod.item.ModItems;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;
@@ -36,18 +39,28 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 createMultipleOreDrops(ModBlocks.AZURITE_NETHER_ORE.get(), ModItems.RAW_AZURITE.get(), 4, 7));
         add(ModBlocks.AZURITE_END_ORE.get(),
                 createMultipleOreDrops(ModBlocks.AZURITE_NETHER_ORE.get(), ModItems.RAW_AZURITE.get(), 4, 7));
+
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
         dropSelf(ModBlocks.AZURITE_STAIRS.get());
+
         add(ModBlocks.AZURITE_SLAB.get(), this::createSlabItemTable);
+
         dropSelf(ModBlocks.AZURITE_PRESSURE_PLATE.get());
         dropSelf(ModBlocks.AZURITE_BUTTON.get());
         dropSelf(ModBlocks.AZURITE_FENCE.get());
         dropSelf(ModBlocks.AZURITE_FENCE_GATE.get());
         dropSelf(ModBlocks.AZURITE_WALL.get());
         dropSelf(ModBlocks.AZURITE_TRAPDOOR.get());
+
         add(ModBlocks.AZURITE_DOOR.get(), this::createDoorTable);
+
         dropSelf(ModBlocks.AZURITE_LAMP.get());
         dropSelf(ModBlocks.PEDESTAL.get());
+
+        add(ModBlocks.ONION_CROP.get(), createCropDrops(ModBlocks.ONION_CROP.get(),
+                ModItems.ONION.get(), ModItems.ONION_SEEDS.get(),
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.ONION_CROP.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OnionCropBlock.AGE, 3))));
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {

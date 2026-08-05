@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.item.custom;
 
 import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.stat.ModStats;
 import com.vincent.tutorialmod.tags.ModTags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -54,6 +55,8 @@ public class MetalDetectorItem extends Item {
                     spawnFoundParticles(level, positionClicked, blockstate);
 
                     addDataToDataTablet(player, positionClicked.below(i));
+
+                    player.awardStat(ModStats.VALUABLES_FOUND.get(), 1);
 
                     break;
                 }

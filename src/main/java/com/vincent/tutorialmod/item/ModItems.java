@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod.item;
 
 import com.vincent.tutorialmod.TutorialMod;
+import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.food.ModFoods;
 import com.vincent.tutorialmod.item.custom.DataTabletItem;
 import com.vincent.tutorialmod.item.custom.MetalDetectorItem;
@@ -69,6 +70,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> BLIZZARD_STAFF = ITEMS.registerItem("blizzard_staff",
             properties -> new Item(properties.stacksTo(1)));
+
+    public static final DeferredItem<Item> ONION_SEEDS = ITEMS.registerItem("onion_seeds",
+            properties -> new BlockItem(ModBlocks.ONION_CROP.get(), properties));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

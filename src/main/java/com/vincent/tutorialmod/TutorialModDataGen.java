@@ -1,6 +1,8 @@
 package com.vincent.tutorialmod;
 
 import com.vincent.tutorialmod.datagen.*;
+import com.vincent.tutorialmod.datagen.paintings.ModDataPackProvider;
+import com.vincent.tutorialmod.datagen.paintings.ModPaintingTagsProvider;
 import com.vincent.tutorialmod.datagen.tags.ModBlockTagsProvider;
 import com.vincent.tutorialmod.datagen.tags.ModItemTagsProvider;
 import net.minecraft.core.HolderLookup.Provider;
@@ -32,5 +34,7 @@ public class TutorialModDataGen {
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
         generator.addProvider(true, new ModDataMapProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModEquipmentAssetProvider(packOutput));
+        generator.addProvider(true, new ModDataPackProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModPaintingTagsProvider(packOutput, lookupProvider));
     }
 }

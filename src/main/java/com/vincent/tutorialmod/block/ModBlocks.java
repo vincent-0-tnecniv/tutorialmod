@@ -3,6 +3,7 @@ package com.vincent.tutorialmod.block;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.custom.AzuriteLampBlock;
 import com.vincent.tutorialmod.block.custom.MagicBlock;
+import com.vincent.tutorialmod.block.custom.OnionCropBlock;
 import com.vincent.tutorialmod.block.custom.PedestalBlock;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.network.chat.Component;
@@ -99,6 +100,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
             properties -> new PedestalBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> ONION_CROP = registerBlockWithoutItem("onion_crop",
+            properties -> new OnionCropBlock(properties.randomTicks().instabreak().noCollision().pushReaction(PushReaction.DESTROY)));
+
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
                 properties -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), properties.strength(strength)
@@ -109,6 +113,10 @@ public class ModBlocks {
         return registerBlock(name,
                 properties -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), properties.strength(strength)
                         .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    }
+
+    private static <T extends Block> DeferredBlock<T> registerBlockWithoutItem(String name, Function<BlockBehaviour.Properties, T> function) {
+        return BLOCKS.registerBlock(name, function);
     }
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {

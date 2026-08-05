@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.event;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.stat.ModStats;
 import com.vincent.tutorialmod.util.SlotGetHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.ItemTags;
@@ -41,6 +42,7 @@ public class ModEvents {
             event.setCanceled(true);
             player.getCooldowns().addCooldown(player.getActiveItem(), 100);
             player.getMainHandItem().hurtAndBreak(15, player, player.getUsedItemHand());
+            player.awardStat(ModStats.TIMES_PARRIED.get(), 1);
 
         }
     }

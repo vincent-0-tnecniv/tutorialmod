@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.stat.ModStats;
 import com.vincent.tutorialmod.tab.ModCreativeModeTabs;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -52,6 +53,7 @@ public class TutorialMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModDataComponents.register(modEventBus);
+        ModStats.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}

@@ -43,6 +43,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DATA_TABLET);
                         output.accept(ModItems.KAUPEN_BOW);
                         output.accept(ModItems.BLIZZARD_STAFF);
+                        output.accept(ModItems.ONION_SEEDS);
                     })
                     .build());
 
