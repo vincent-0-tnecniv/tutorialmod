@@ -23,65 +23,70 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.AZURITE_BLOCK.getKey())
-                .add(ModBlocks.RAW_AZURITE_BLOCK.getKey())
-                .add(ModBlocks.AZURITE_ORE.getKey())
-                .add(ModBlocks.AZURITE_NETHER_ORE.getKey())
-                .add(ModBlocks.AZURITE_DEEPSLATE_ORE.getKey())
-                .add(ModBlocks.AZURITE_END_ORE.getKey())
-                .add(ModBlocks.MAGIC_BLOCK.getKey())
-                .add(ModBlocks.AZURITE_STAIRS.getKey())
-                .add(ModBlocks.AZURITE_SLAB.getKey())
-                .add(ModBlocks.PEDESTAL.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_BLOCK))
+                .add(ModBlocks.getRK(ModBlocks.RAW_AZURITE_BLOCK))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_NETHER_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_DEEPSLATE_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_END_ORE))
+                .add(ModBlocks.getRK(ModBlocks.MAGIC_BLOCK))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_STAIRS))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_SLAB))
+                .add(ModBlocks.getRK(ModBlocks.PEDESTAL));
+
         tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.AZURITE_DEEPSLATE_ORE.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_DEEPSLATE_ORE));
+
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.AZURITE_NETHER_ORE.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_NETHER_ORE));
+
         tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
-                .add(ModBlocks.AZURITE_END_ORE.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_END_ORE));
 
         tag(ModTags.Blocks.METAL_DETECTABLES)
                 .addTag(Tags.Blocks.ORES)
-                .add(ModBlocks.AZURITE_ORE.getKey())
-                .add(ModBlocks.AZURITE_DEEPSLATE_ORE.getKey())
-                .add(ModBlocks.AZURITE_END_ORE.getKey())
-                .add(ModBlocks.AZURITE_NETHER_ORE.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_DEEPSLATE_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_END_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_NETHER_ORE));
 
         // adding to non-block block sets is not STRICTLY necessary
-        // however, still good to add as convention so that other mods, if needded,
+        // however, still good to add as convention so that other mods, if needed,
         //  support the use of the non-block blocks
         tag(BlockTags.STAIRS)
-                .add(ModBlocks.AZURITE_STAIRS.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_STAIRS));
         tag(BlockTags.SLABS)
-                .add(ModBlocks.AZURITE_SLAB.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_SLAB));
         tag(BlockTags.PRESSURE_PLATES)
-                .add(ModBlocks.AZURITE_PRESSURE_PLATE.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_PRESSURE_PLATE));
         tag(BlockTags.BUTTONS)
-                .add(ModBlocks.AZURITE_BUTTON.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_BUTTON));
         tag(BlockTags.DOORS)
-                .add(ModBlocks.AZURITE_DOOR.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_DOOR));
         tag(BlockTags.TRAPDOORS)
-                .add(ModBlocks.AZURITE_TRAPDOOR.getKey());
-
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_TRAPDOOR));
 
         // For a block family, these are MANDATORY
 //        tag(BlockTags.WOODEN_FENCES)
-//                .add(ModBlocks.AZURITE_FENCE.getKey());
+//                .add(ModBlocks.getRK(ModBlocks.AZURITE_FENCE));
         // For wooden fences, the above tag is needed as they don't connect to those that aren't
         tag(BlockTags.FENCES)
-                .add(ModBlocks.AZURITE_FENCE.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_FENCE));
         tag(BlockTags.FENCE_GATES)
-                .add(ModBlocks.AZURITE_FENCE_GATE.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_FENCE_GATE));
         tag(BlockTags.WALLS)
-                .add(ModBlocks.AZURITE_WALL.getKey());
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_WALL));
 
         tag(ModTags.Blocks.NEEDS_AZURITE_TOOL)
-                .add(ModBlocks.MAGIC_BLOCK.getKey())
+                .add(ModBlocks.getRK(ModBlocks.MAGIC_BLOCK))
                 .addTag(BlockTags.NEEDS_IRON_TOOL);
 
         tag(ModTags.Blocks.INCORRECT_FOR_AZURITE_TOOL)
-                .remove(ModBlocks.MAGIC_BLOCK.getKey())
+                .remove(ModBlocks.getRK(ModBlocks.MAGIC_BLOCK))
                 .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL);
+
+        tag(BlockTags.CROPS)
+                .add(ModBlocks.getRK(ModBlocks.ONION_CROP));
     }
 
     // Use these methods for any adding of vanilla blocks

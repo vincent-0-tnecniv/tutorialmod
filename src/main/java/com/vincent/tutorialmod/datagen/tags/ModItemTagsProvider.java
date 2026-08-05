@@ -26,9 +26,9 @@ public class ModItemTagsProvider extends BaseItemTagsProvider {
                 Items.COPPER_INGOT
             ));
         tag(ModTags.Items.TRANSFORMABLE_ITEMS)
-                .add(ModItems.AZURITE.getKey());
+                .add(ModItems.getRK(ModItems.AZURITE));
         tag(ModTags.Items.AZURITE_REPAIRABLE)
-                .add(ModItems.AZURITE.getKey());
+                .add(ModItems.getRK(ModItems.AZURITE.get()));
 
         allTools(ModItems.AZURITE_SWORD, ModItems.AZURITE_PICKAXE, ModItems.AZURITE_AXE,
                 ModItems.AZURITE_SHOVEL, ModItems.AZURITE_HOE, ModItems.AZURITE_SPEAR);

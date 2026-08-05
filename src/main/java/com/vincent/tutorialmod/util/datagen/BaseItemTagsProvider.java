@@ -1,5 +1,6 @@
 package com.vincent.tutorialmod.util.datagen;
 
+import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -18,10 +19,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
     }
 
     protected void addToTag(TagKey<Item> tag, Item item) {
-        ResourceKey<Item> key = item.builtInRegistryHolder().getKey();
-        if(key == null) {
-            throw new NullPointerException(item.getDescriptionId() + " not found in registry");
-        }
+        ResourceKey<Item> key = ModItems.getRK(item);
         tag(tag).add(key);
     }
 
@@ -31,9 +29,6 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
 
     protected void addToTag(TagKey<Item> tag, List<Item> items) {
         for(Item item : items) {
-            if(item.builtInRegistryHolder().getKey() == null) {
-                throw new NullPointerException(item.getDescriptionId() + " not found in registry");
-            }
             addToTag(tag, item);
         }
     }
@@ -115,7 +110,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
             } else {
                 try{
                     DeferredItem<Item> deferredItem = (DeferredItem<Item>) obj;
-                    tag(ItemTags.SPEARS).add(deferredItem.getKey());
+                    tag(ItemTags.SPEARS).add(ModItems.getRK(deferredItem.get()));
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }
@@ -138,7 +133,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
             } else {
                 try{
                     DeferredItem<Item> deferredItem = (DeferredItem<Item>) obj;
-                    tag(ItemTags.PICKAXES).add(deferredItem.getKey());
+                    tag(ItemTags.PICKAXES).add(ModItems.getRK(deferredItem.get()));
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }
@@ -161,7 +156,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
             } else {
                 try{
                     DeferredItem<Item> deferredItem = (DeferredItem<Item>) obj;
-                    tag(ItemTags.SWORDS).add(deferredItem.getKey());
+                    tag(ItemTags.SWORDS).add(ModItems.getRK(deferredItem.get()));
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }
@@ -184,7 +179,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
             } else {
                 try{
                     DeferredItem<Item> deferredItem = (DeferredItem<Item>) obj;
-                    tag(ItemTags.AXES).add(deferredItem.getKey());
+                    tag(ItemTags.AXES).add(ModItems.getRK(deferredItem.get()));
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }
@@ -207,7 +202,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
             } else {
                 try{
                     DeferredItem<Item> deferredItem = (DeferredItem<Item>) obj;
-                    tag(ItemTags.SHOVELS).add(deferredItem.getKey());
+                    tag(ItemTags.SHOVELS).add(ModItems.getRK(deferredItem.get()));
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }
@@ -230,7 +225,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
             } else {
                 try{
                     DeferredItem<Item> deferredItem = (DeferredItem<Item>) obj;
-                    tag(ItemTags.HOES).add(deferredItem.getKey());
+                    tag(ItemTags.HOES).add(ModItems.getRK(deferredItem.get()));
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }

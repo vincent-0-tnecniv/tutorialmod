@@ -5,7 +5,9 @@ import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.food.ModFoods;
 import com.vincent.tutorialmod.item.custom.DataTabletItem;
 import com.vincent.tutorialmod.item.custom.MetalDetectorItem;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.equipment.ArmorType;
@@ -73,6 +75,14 @@ public class ModItems {
 
     public static final DeferredItem<Item> ONION_SEEDS = ITEMS.registerItem("onion_seeds",
             properties -> new BlockItem(ModBlocks.ONION_CROP.get(), properties));
+
+    public static ResourceKey<Item> getRK(Item item) {
+        return BuiltInRegistries.ITEM.getResourceKey(item).get();
+    }
+
+    public static ResourceKey<Item> getRK(DeferredItem<Item> item) {
+        return getRK(item.get());
+    }
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

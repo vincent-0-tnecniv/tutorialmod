@@ -22,6 +22,8 @@
   "item.tutorialmod.kaupen_bow": "Kaupen Bow",
   "item.tutorialmod.blizzard_staff": "Blizzard Staff",
 
+  "item.tutorialmod.onion_seeds": "Onion Seeds",
+
   "block.tutorialmod.azurite_block": "Block of Azurite",
   "block.tutorialmod.azurite_deepslate_ore": "Azurite Deepslate Ore",
   "block.tutorialmod.azurite_end_ore": "Azurite End Ore",
@@ -31,6 +33,8 @@
   "block.tutorialmod.magic_block": "Magic Block",
   "block.tutorialmod.azurite_lamp": "Azurite Lamp",
   "block.tutorialmod.pedestal": "Pedestal",
+
+  "block.tutorialmod.onion_crop": "Onion Crop",
 
   "block.tutorialmod.azurite_stairs": "Azurite Stairs",
   "block.tutorialmod.azurite_slab": "Azurite Slab",

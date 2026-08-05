@@ -6,7 +6,9 @@ import com.vincent.tutorialmod.block.custom.MagicBlock;
 import com.vincent.tutorialmod.block.custom.OnionCropBlock;
 import com.vincent.tutorialmod.block.custom.PedestalBlock;
 import com.vincent.tutorialmod.item.ModItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -15,7 +17,6 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
@@ -101,7 +102,9 @@ public class ModBlocks {
             properties -> new PedestalBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> ONION_CROP = registerBlockWithoutItem("onion_crop",
-            properties -> new OnionCropBlock(properties.randomTicks().instabreak().noCollision().pushReaction(PushReaction.DESTROY)));
+            properties -> new OnionCropBlock(properties
+                    .randomTicks().instabreak().noCollision()
+                    .pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
@@ -145,6 +148,14 @@ public class ModBlocks {
                 super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
             }
         });
+    }
+
+    public static ResourceKey<Block> getRK(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
+
+    public static ResourceKey<Block> getRK(DeferredBlock<Block> block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block.get()).get();
     }
 
     public static void register(IEventBus eventBus) {

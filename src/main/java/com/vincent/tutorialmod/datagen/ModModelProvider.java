@@ -3,6 +3,7 @@ package com.vincent.tutorialmod.datagen;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.block.custom.AzuriteLampBlock;
+import com.vincent.tutorialmod.block.custom.OnionCropBlock;
 import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.item.ModArmorMaterials;
 import com.vincent.tutorialmod.item.ModItems;
@@ -102,6 +103,8 @@ public class ModModelProvider extends FixedModelProvider {
         );
 
         blockModels.createNonTemplateModelBlock(ModBlocks.PEDESTAL.get());
+
+        blockModels.createCropBlock(ModBlocks.ONION_CROP.get(), OnionCropBlock.AGE, 0, 1, 2, 3);
     }
 
 

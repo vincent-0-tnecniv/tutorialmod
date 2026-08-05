@@ -1,5 +1,6 @@
 package com.vincent.tutorialmod.block.custom;
 
+import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.BeetrootBlock;
 import net.minecraft.world.level.block.Block;
@@ -18,7 +19,7 @@ public class OnionCropBlock extends BeetrootBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return ;
+        return ModItems.ONION_SEEDS.get();
     }
 
     @Override
