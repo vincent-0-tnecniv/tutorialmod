@@ -105,15 +105,13 @@ public class ModModelProvider extends FixedModelProvider {
         blockModels.createNonTemplateModelBlock(ModBlocks.PEDESTAL.get());
 
         blockModels.createCropBlock(ModBlocks.ONION_CROP.get(), OnionCropBlock.AGE, 0, 1, 2, 3);
+
+        blockModels.createBerryBush(ModBlocks.GOJI_BERRY_BUSH, ModItems.GOJI_BERRIES);
     }
 
 
     protected void registerDataComponentModels(FixedItemModelGenerators itemModels, Item item, String switchSuffix, DataComponentType<?> component, ModelTemplate template) {
-        ItemModel.Unbaked unbakedDataTablet = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, template));
-        ItemModel.Unbaked unbakedDataTabletOn = ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, switchSuffix, template));
-        itemModels.itemModelOutput.register(item,
-                new ClientItem(new ConditionalItemModel.Unbaked(Optional.empty(), new HasComponent(component, false),
-                        unbakedDataTabletOn, unbakedDataTablet), new ClientItem.Properties(false, false, 1f)));
+        itemModels.itemModelOutput.register(item, new ClientItem(new ConditionalItemModel.Unbaked(Optional.empty(), new HasComponent(component, false), ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, switchSuffix, template)), ItemModelUtils.plainModel(itemModels.createFlatItemModel(item, template))), new ClientItem.Properties(false, false, 1f)));
     }
 
 //    Human-readable format of the above method:

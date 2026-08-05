@@ -3,12 +3,12 @@ package com.vincent.tutorialmod.datagen;
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.block.custom.OnionCropBlock;
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.util.datagen.BaseBlockLootSubProvider;
 import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -23,7 +23,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;
 
-public class ModBlockLootTableProvider extends BlockLootSubProvider {
+public class ModBlockLootTableProvider extends BaseBlockLootSubProvider {
 
     public ModBlockLootTableProvider(Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
@@ -61,6 +61,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 ModItems.ONION.get(), ModItems.ONION_SEEDS.get(),
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.ONION_CROP.get())
                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OnionCropBlock.AGE, 3))));
+
+        addBerry(ModBlocks.GOJI_BERRY_BUSH, ModItems.GOJI_BERRIES);
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {

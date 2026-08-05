@@ -17,4 +17,12 @@ public class ModFoods {
                     new MobEffectInstance(MobEffects.NAUSEA, 400),
                     0.1f)
             ).build();
+
+    public static final FoodProperties GOJI_BERRIES = new FoodProperties.Builder().nutrition(1)
+            .saturationModifier(0.2f).build();
+
+    public static final Consumable GOJI_BERRIES_CONSUMABLE = Consumables.defaultFood()
+            .onConsume(new ApplyStatusEffectsConsumeEffect(
+                    new MobEffectInstance(MobEffects.SATURATION, 1, 127))
+            ).build();
 }

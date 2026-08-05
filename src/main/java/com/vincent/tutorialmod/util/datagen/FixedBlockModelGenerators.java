@@ -10,13 +10,19 @@ import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.block.dispatch.Variant;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import org.jspecify.annotations.Nullable;
 
 import java.util.*;
@@ -241,5 +247,22 @@ public class FixedBlockModelGenerators extends BlockModelGenerators {
             });
             return this;
         }
+    }
+
+    public void createBerryBush(Block berryBush, Item berry) {
+        this.registerSimpleFlatItemModel(berry);
+        this.blockStateOutput.accept(MultiVariantGenerator.dispatch(berryBush).with(PropertyDispatch.initial(BlockStateProperties.AGE_3).generate((age) -> plainVariant(this.createSuffixedVariant(berryBush, "_stage" + age, ModelTemplates.CROSS, TextureMapping::cross)))));
+    }
+
+    public void createBerryBush(DeferredBlock<Block> block, DeferredItem<Item> item){
+        createBerryBush(block.get(), item.get());
+    }
+
+    public void createBerryBush(Block block, DeferredItem<Item> item){
+        createBerryBush(block, item.get());
+    }
+
+    public void createBerryBush(DeferredBlock<Block> block, Item item){
+        createBerryBush(block.get(), item);
     }
 }

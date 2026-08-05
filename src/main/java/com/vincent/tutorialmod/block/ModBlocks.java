@@ -1,10 +1,7 @@
 package com.vincent.tutorialmod.block;
 
 import com.vincent.tutorialmod.TutorialMod;
-import com.vincent.tutorialmod.block.custom.AzuriteLampBlock;
-import com.vincent.tutorialmod.block.custom.MagicBlock;
-import com.vincent.tutorialmod.block.custom.OnionCropBlock;
-import com.vincent.tutorialmod.block.custom.PedestalBlock;
+import com.vincent.tutorialmod.block.custom.*;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -105,6 +102,11 @@ public class ModBlocks {
             properties -> new OnionCropBlock(properties
                     .randomTicks().instabreak().noCollision()
                     .pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
+
+    public static final DeferredBlock<Block> GOJI_BERRY_BUSH = registerBlockWithoutItem("goji_berry_bush",
+            properties -> new GojiBerryBushBlock(properties
+                    .randomTicks().noCollision()
+                    .pushReaction(PushReaction.DESTROY).sound(SoundType.SWEET_BERRY_BUSH)));
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
