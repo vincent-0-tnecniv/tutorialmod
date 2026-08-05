@@ -1,4 +1,10 @@
 {
+  "bar_brawl": {
+    "sounds": [
+      "tutorialmod:bar_brawl"
+    ],
+    "subtitle": "sounds.tutorialmod.bar_brawl"
+  },
   "valuables_found": {
     "sounds": [
       "tutorialmod:valuables_found"

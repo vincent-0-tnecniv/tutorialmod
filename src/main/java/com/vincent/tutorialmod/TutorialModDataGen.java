@@ -1,8 +1,9 @@
 package com.vincent.tutorialmod;
 
 import com.vincent.tutorialmod.datagen.*;
-import com.vincent.tutorialmod.datagen.paintings.ModDataPackProvider;
+import com.vincent.tutorialmod.datagen.ModDataPackProvider;
 import com.vincent.tutorialmod.datagen.paintings.ModPaintingTagsProvider;
+import com.vincent.tutorialmod.datagen.sounds.ModSoundsProvider;
 import com.vincent.tutorialmod.datagen.tags.ModBlockTagsProvider;
 import com.vincent.tutorialmod.datagen.tags.ModItemTagsProvider;
 import net.minecraft.core.HolderLookup.Provider;

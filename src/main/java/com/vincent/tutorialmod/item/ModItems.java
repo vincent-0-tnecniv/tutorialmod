@@ -5,6 +5,7 @@ import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.food.ModFoods;
 import com.vincent.tutorialmod.item.custom.DataTabletItem;
 import com.vincent.tutorialmod.item.custom.MetalDetectorItem;
+import com.vincent.tutorialmod.sound.ModSounds;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -81,6 +82,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> RICE_SHOOT = ITEMS.registerItem("rice_shoot",
             properties -> new PlaceOnWaterBlockItem(ModBlocks.RICE_CROP.get(), properties));
+
+    public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
+            properties -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).rarity(Rarity.EPIC).stacksTo(1)));
 
     public static ResourceKey<Item> getRK(Item item) {
         return BuiltInRegistries.ITEM.getResourceKey(item).get();

@@ -28,7 +28,7 @@ public class ModItemTagsProvider extends BaseItemTagsProvider {
         tag(ModTags.Items.TRANSFORMABLE_ITEMS)
                 .add(ModItems.getRK(ModItems.AZURITE));
         tag(ModTags.Items.AZURITE_REPAIRABLE)
-                .add(ModItems.getRK(ModItems.AZURITE.get()));
+                .add(ModItems.getRK(ModItems.AZURITE));
 
         allTools(ModItems.AZURITE_SWORD, ModItems.AZURITE_PICKAXE, ModItems.AZURITE_AXE,
                 ModItems.AZURITE_SHOVEL, ModItems.AZURITE_HOE, ModItems.AZURITE_SPEAR);
@@ -37,6 +37,9 @@ public class ModItemTagsProvider extends BaseItemTagsProvider {
                 ModItems.AZURITE_LEGGINGS, ModItems.AZURITE_BOOTS, true);
 
         tag(ItemTags.BOW_ENCHANTABLE)
-                .add(ModItems.KAUPEN_BOW.getKey());
+                .add(ModItems.getRK(ModItems.KAUPEN_BOW));
+
+        tag(ItemTags.CREEPER_DROP_MUSIC_DISCS)
+                .add(ModItems.getRK(ModItems.BAR_BRAWL_MUSIC_DISC));
     }
 }
