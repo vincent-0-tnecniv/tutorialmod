@@ -36,12 +36,17 @@ public class ModEvents {
         if(event.getEntity() instanceof Player player && hasFullAzurite(player)) {
             event.setAmount(event.getAmount() * 0.5f);
         }
-        if(event.getEntity() instanceof Player player && isHoldingSword(player) && player.isUsingItem()) {
-            // player is right-clicking with a sword - a parry
+        if(event.getEntity() instanceof Player player && isHoldingSword(player) && isSwordNotAtCooldown(player)) {
+            // player is holding with a sword - a parry
             event.setCanceled(true);
-            player.getCooldowns().addCooldown(player.getActiveItem(), 20);
+            player.getCooldowns().addCooldown(player.getActiveItem(), 100);
+            player.getMainHandItem().hurtAndBreak(15, player, player.getUsedItemHand());
 
         }
+    }
+
+    private static boolean isSwordNotAtCooldown(Player player) {
+        return !player.getCooldowns().isOnCooldown(player.getMainHandItem());
     }
 
     private static boolean hasFullAzurite(Player player){

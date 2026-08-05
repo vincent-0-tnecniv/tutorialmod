@@ -100,6 +100,8 @@ public class ModModelProvider extends FixedModelProvider {
                         )
                 )
         );
+
+        blockModels.createNonTemplateModelBlock(ModBlocks.PEDESTAL.get());
     }
 
 

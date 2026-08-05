@@ -3,6 +3,7 @@ package com.vincent.tutorialmod.block;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.custom.AzuriteLampBlock;
 import com.vincent.tutorialmod.block.custom.MagicBlock;
+import com.vincent.tutorialmod.block.custom.PedestalBlock;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -94,6 +95,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> AZURITE_LAMP = registerBlock("azurite_lamp",
             properties -> new AzuriteLampBlock(properties.strength(2f)
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(AzuriteLampBlock.CLICKED) ? 15 : 0)));
+
+    public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
+            properties -> new PedestalBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
