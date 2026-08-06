@@ -56,6 +56,7 @@ public class ModModelProvider extends FixedModelProvider {
         // only calling the generateBow() method will work once and for all
 
         itemModels.declareCustomModelItem(ModItems.BLIZZARD_STAFF.get());
+        itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
 //        blockModels.createTrivialCube(ModBlocks.AZURITE_BLOCK.get());
         // added with the block family
