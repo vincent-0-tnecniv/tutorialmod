@@ -1,7 +1,6 @@
 package com.vincent.tutorialmod.datagen.sounds;
 
 import com.vincent.tutorialmod.sound.ModSounds;
-import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;

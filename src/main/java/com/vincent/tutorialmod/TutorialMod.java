@@ -3,6 +3,7 @@ package com.vincent.tutorialmod;
 import com.mojang.logging.LogUtils;
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.data.ModDataComponents;
+import com.vincent.tutorialmod.effect.ModEffects;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.sound.ModSounds;
 import com.vincent.tutorialmod.stat.ModStats;
@@ -56,6 +57,7 @@ public class TutorialMod {
         ModDataComponents.register(modEventBus);
         ModStats.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModEffects.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}
