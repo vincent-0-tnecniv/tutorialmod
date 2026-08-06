@@ -40,5 +40,6 @@ public class TutorialModDataGen {
         generator.addProvider(true, new ModPaintingTagsProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModSoundsProvider(packOutput));
         generator.addProvider(true, new ModDamageTypeTagsProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModAdvancements(packOutput, lookupProvider));
     }
 }

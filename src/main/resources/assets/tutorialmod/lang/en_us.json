@@ -94,5 +94,14 @@
   "effect.tutorialmod.stinky.description": "Causes entities around you to take damage",
 
   "death.attack.stinky": "%s was stinkied to death!",
-  "death.attack.stinky.player": "%s was stinkied to death when escaping from %s!"
+  "death.attack.stinky.player": "%s was stinkied to death when escaping from %s!",
+
+  "advancements.tutorialmod.root.title": "TutorialMod Advancements",
+  "advancements.tutorialmod.root.description": "TutorialMod Advancements Pretty Cool!",
+
+  "advancements.tutorialmod.plant_custom.title": "Plant and Zombie",
+  "advancements.tutorialmod.plant_custom.description": "Planting these custom plants is pretty neat!",
+
+  "advancements.tutorialmod.metal_detector.title": "Beep-boop!",
+  "advancements.tutorialmod.metal_detector.description": "Try finding valuables with the Metal Detector"
 }
