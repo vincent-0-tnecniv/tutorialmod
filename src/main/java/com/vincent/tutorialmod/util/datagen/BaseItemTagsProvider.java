@@ -96,7 +96,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
     }
 
     protected void spear(DeferredItem<Item> item) {
-        addToTag(ItemTags.SPEARS, item);
+        spear(item.get());
     }
 
     protected void spear(Item item){
@@ -110,10 +110,11 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
             } else {
                 try{
                     DeferredItem<Item> deferredItem = (DeferredItem<Item>) obj;
-                    tag(ItemTags.SPEARS).add(ModItems.getRK(deferredItem.get()));
+                    spear(deferredItem.get());
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }
+
             }
         }
     }
@@ -240,6 +241,7 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
         axe(axeItem);
         shovel(shovelItem);
         hoe(hoeItem);
+        spear(spearItem);
     }
 
     protected void allTools(DeferredItem<Item> swordItem, DeferredItem<Item> pickaxeItem, DeferredItem<Item> axeItem,

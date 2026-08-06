@@ -1,4 +1,14 @@
 {
+  "item.minecraft.potion.effect.stinky_potion": "Stinky Potion",
+  "item.minecraft.potion.effect.stinky_long_potion": "Stinky Potion",
+  "item.minecraft.potion.effect.stinky_strong_potion": "Stinky Potion",
+  "item.minecraft.splash_potion.effect.stinky_potion": "Stinky Splash Potion",
+  "item.minecraft.splash_potion.effect.stinky_long_potion": "Stinky Splash Potion",
+  "item.minecraft.splash_potion.effect.stinky_strong_potion": "Stinky Splash Potion",
+  "item.minecraft.lingering_potion.effect.stinky_potion": "Stinky Lingering Potion",
+  "item.minecraft.lingering_potion.effect.stinky_long_potion": "Stinky Lingering Potion",
+  "item.minecraft.lingering_potion.effect.stinky_strong_potion": "Stinky Lingering Potion",
+
   "item.tutorialmod.azurite": "Azurite",
   "item.tutorialmod.raw_azurite": "Raw Azurite",
   "item.tutorialmod.metal_detector": "Metal Detector",

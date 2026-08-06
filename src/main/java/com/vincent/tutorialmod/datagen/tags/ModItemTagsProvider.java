@@ -41,5 +41,6 @@ public class ModItemTagsProvider extends BaseItemTagsProvider {
 
         tag(ItemTags.CREEPER_DROP_MUSIC_DISCS)
                 .add(ModItems.getRK(ModItems.BAR_BRAWL_MUSIC_DISC));
+
     }
 }
