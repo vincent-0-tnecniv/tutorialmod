@@ -1,4 +1,4 @@
-package com.vincent.tutorialmod.datagen.sounds;
+package com.vincent.tutorialmod.datagen.datapack.sounds;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.sound.ModSounds;

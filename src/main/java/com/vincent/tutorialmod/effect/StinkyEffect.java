@@ -1,5 +1,6 @@
 package com.vincent.tutorialmod.effect;
 
+import com.vincent.tutorialmod.datagen.datapack.damage_type.ModDamageTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -20,7 +21,7 @@ public class StinkyEffect extends MobEffect {
         List<Entity> entities = serverLevel.getEntities(mob, boundingBox);
         for(Entity entity : entities) {
             if(entity instanceof LivingEntity livingEntity) {
-                livingEntity.hurtServer(serverLevel, mob.damageSources().magic(), 0.25f * (amplification + 1));
+                livingEntity.hurtServer(serverLevel, ModDamageTypes.create(serverLevel, ModDamageTypes.STINKY, mob), 0.25f * (amplification + 1));
             }
         }
         return super.applyEffectTick(serverLevel, mob, amplification);

@@ -88,5 +88,8 @@
   "jukebox_song.tutorialmod.bar_brawl": "Bryan Tech - Bar Brawl (CC0)",
 
   "effect.tutorialmod.stinky": "Stinky",
-  "effect.tutorialmod.stinky.description": "Causes entities around you to take damage"
+  "effect.tutorialmod.stinky.description": "Causes entities around you to take damage",
+
+  "death.attack.stinky": "%s was stinkied to death!",
+  "death.attack.stinky.player": "%s was stinkied to death when escaping from %s!"
 }

@@ -1,4 +1,4 @@
-package com.vincent.tutorialmod.datagen.paintings;
+package com.vincent.tutorialmod.datagen.datapack.paintings;
 
 import com.vincent.tutorialmod.TutorialMod;
 import net.minecraft.ChatFormatting;
@@ -17,7 +17,7 @@ public class ModPaintings {
     public static final ResourceKey<PaintingVariant> SHRIMP_KEY = create("shrimp");
     public static final ResourceKey<PaintingVariant> WORLD_KEY = create("world");
 
-    public static void boostrap(BootstrapContext<PaintingVariant> context) {
+    public static void bootstrap(BootstrapContext<PaintingVariant> context) {
         register(context, SAW_THEM_KEY, 2, 2, true);
         register(context, SHRIMP_KEY, 2, 1, true);
         register(context, WORLD_KEY, 2, 2, true);

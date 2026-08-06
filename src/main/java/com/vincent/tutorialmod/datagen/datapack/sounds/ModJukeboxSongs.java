@@ -1,4 +1,4 @@
-package com.vincent.tutorialmod.datagen.sounds;
+package com.vincent.tutorialmod.datagen.datapack.sounds;
 
 import com.vincent.tutorialmod.sound.ModSounds;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -11,7 +11,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ModJukeboxSongs {
 
-    public static void boostrap(BootstrapContext<JukeboxSong> context) {
+    public static void bootstrap(BootstrapContext<JukeboxSong> context) {
         register(context, ModSounds.BAR_BRAWL_KEY, ModSounds.BAR_BRAWL, 162, 15);
     }
 

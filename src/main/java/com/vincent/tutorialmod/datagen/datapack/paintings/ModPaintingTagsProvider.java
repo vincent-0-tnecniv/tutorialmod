@@ -1,4 +1,4 @@
-package com.vincent.tutorialmod.datagen.paintings;
+package com.vincent.tutorialmod.datagen.datapack.paintings;
 
 import com.vincent.tutorialmod.TutorialMod;
 import net.minecraft.core.HolderLookup;
