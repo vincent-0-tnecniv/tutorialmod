@@ -4,9 +4,9 @@ import com.vincent.tutorialmod.datagen.*;
 import com.vincent.tutorialmod.datagen.datapack.ModDataPackProvider;
 import com.vincent.tutorialmod.datagen.datapack.paintings.ModPaintingTagsProvider;
 import com.vincent.tutorialmod.datagen.datapack.sounds.ModSoundsProvider;
-import com.vincent.tutorialmod.datagen.tags.ModBlockTagsProvider;
-import com.vincent.tutorialmod.datagen.tags.ModDamageTypeTagsProvider;
-import com.vincent.tutorialmod.datagen.tags.ModItemTagsProvider;
+import com.vincent.tutorialmod.datagen.tags.*;
+import com.vincent.tutorialmod.datagen.villager.tags.ModPOITags;
+import com.vincent.tutorialmod.datagen.villager.tags.ModVillagerTradeTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -41,5 +41,7 @@ public class TutorialModDataGen {
         generator.addProvider(true, new ModSoundsProvider(packOutput));
         generator.addProvider(true, new ModDamageTypeTagsProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModAdvancements(packOutput, lookupProvider));
+        generator.addProvider(true, new ModVillagerTradeTags(packOutput, lookupProvider));
+        generator.addProvider(true, new ModPOITags(packOutput, lookupProvider));
     }
 }

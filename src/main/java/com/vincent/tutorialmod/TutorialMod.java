@@ -9,6 +9,7 @@ import com.vincent.tutorialmod.potion.ModPotions;
 import com.vincent.tutorialmod.sound.ModSounds;
 import com.vincent.tutorialmod.stat.ModStats;
 import com.vincent.tutorialmod.tab.ModCreativeModeTabs;
+import com.vincent.tutorialmod.villager.ModVillagers;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -60,6 +61,7 @@ public class TutorialMod {
         ModSounds.register(modEventBus);
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
+        ModVillagers.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}
