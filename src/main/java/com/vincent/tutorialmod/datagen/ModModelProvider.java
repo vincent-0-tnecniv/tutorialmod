@@ -17,7 +17,6 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
-import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.data.PackOutput;
@@ -105,7 +104,7 @@ public class ModModelProvider extends FixedModelProvider {
                 )
         );
 
-        blockModels.createNonTemplateModelBlock(ModBlocks.PEDESTAL.get());
+        blockModels.createNonTemplateModelBlock(ModBlocks.PEDESTAL_BLOCK.get());
 
         blockModels.createCropBlock(ModBlocks.ONION_CROP.get(), OnionCropBlock.AGE, 0, 1, 2, 3);
 

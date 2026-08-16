@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.block;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.custom.*;
+import com.vincent.tutorialmod.block.custom.PedestalBlock;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -95,7 +96,7 @@ public class ModBlocks {
             properties -> new AzuriteLampBlock(properties.strength(2f)
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(AzuriteLampBlock.CLICKED) ? 15 : 0)));
 
-    public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
+    public static final DeferredBlock<Block> PEDESTAL_BLOCK = registerBlock("pedestal",
             properties -> new PedestalBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> ONION_CROP = registerBlockWithoutItem("onion_crop",

@@ -54,7 +54,7 @@ public class ModBlockLootTableProvider extends BaseBlockLootSubProvider {
         add(ModBlocks.AZURITE_DOOR.get(), this::createDoorTable);
 
         dropSelf(ModBlocks.AZURITE_LAMP.get());
-        dropSelf(ModBlocks.PEDESTAL.get());
+        dropSelf(ModBlocks.PEDESTAL_BLOCK.get());
 
         addCrop(ModItems.ONION, ModItems.ONION_SEEDS, ModBlocks.ONION_CROP, OnionCropBlock.AGE, 3);
 

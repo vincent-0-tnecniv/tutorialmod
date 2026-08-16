@@ -2,6 +2,7 @@ package com.vincent.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.block.entity.ModBlockEntities;
 import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.effect.ModEffects;
 import com.vincent.tutorialmod.item.ModItems;
@@ -62,6 +63,7 @@ public class TutorialMod {
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
         ModVillagers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}
