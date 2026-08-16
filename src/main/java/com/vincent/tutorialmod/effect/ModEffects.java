@@ -16,6 +16,10 @@ public class ModEffects{
     public static final Holder<MobEffect> STINKY_EFFECT = MOB_EFFECTS.register("stinky",
             () -> new StinkyEffect(MobEffectCategory.NEUTRAL, 0xd95218));
 
+    public static final Holder<MobEffect> DETONATING_EFFECT = MOB_EFFECTS.register("detonating",
+            () -> new DetonatingEffect(MobEffectCategory.NEUTRAL, 0xff0000));
+
+
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

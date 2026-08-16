@@ -1,11 +1,10 @@
-package com.vincent.tutorialmod.datagen;
+package com.vincent.tutorialmod.datagen.loot;
 
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.block.custom.OnionCropBlock;
 import com.vincent.tutorialmod.block.custom.RiceCropBlock;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.util.datagen.BaseBlockLootSubProvider;
-import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;

@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod;
 
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.keymapping.ModKeyMappings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tags.ItemTags;
 import net.neoforged.api.distmarker.Dist;
@@ -23,6 +24,8 @@ public class TutorialModClient {
         // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
         // Do not forget to add translations for your config options to the en_us.json file.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+
+        ModKeyMappings.register();
     }
 
     @SubscribeEvent

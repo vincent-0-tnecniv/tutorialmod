@@ -103,5 +103,7 @@
   "advancements.tutorialmod.metal_detector.title": "Beep-boop!",
   "advancements.tutorialmod.metal_detector.description": "Try finding valuables with the Metal Detector",
 
-  "entity.minecraft.villager.tutorialmod.kaupenger": "Kaupenger"
+  "entity.minecraft.villager.tutorialmod.kaupenger": "Kaupenger",
+
+  "key.tutorialmod.kaupen": "Kaupen Key"
 }

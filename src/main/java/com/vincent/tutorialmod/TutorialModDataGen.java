@@ -4,6 +4,9 @@ import com.vincent.tutorialmod.datagen.*;
 import com.vincent.tutorialmod.datagen.datapack.ModDataPackProvider;
 import com.vincent.tutorialmod.datagen.datapack.paintings.ModPaintingTagsProvider;
 import com.vincent.tutorialmod.datagen.datapack.sounds.ModSoundsProvider;
+import com.vincent.tutorialmod.datagen.loot.ModBlockLootTableProvider;
+import com.vincent.tutorialmod.datagen.loot.ModExtraLootProvider;
+import com.vincent.tutorialmod.datagen.loot.ModGlobalLootTableModifierProvider;
 import com.vincent.tutorialmod.datagen.tags.*;
 import com.vincent.tutorialmod.datagen.villager.tags.ModPOITags;
 import com.vincent.tutorialmod.datagen.villager.tags.ModVillagerTradeTags;
@@ -32,7 +35,10 @@ public class TutorialModDataGen {
         generator.addProvider(true, new ModBlockTagsProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModItemTagsProvider(packOutput, lookupProvider));
         generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
+                List.of(
+                        new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK),
+                        new LootTableProvider.SubProviderEntry(ModExtraLootProvider::new, LootContextParamSets.ALL_PARAMS)
+                ), lookupProvider));
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
         generator.addProvider(true, new ModDataMapProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModEquipmentAssetProvider(packOutput));
@@ -43,5 +49,6 @@ public class TutorialModDataGen {
         generator.addProvider(true, new ModAdvancements(packOutput, lookupProvider));
         generator.addProvider(true, new ModVillagerTradeTags(packOutput, lookupProvider));
         generator.addProvider(true, new ModPOITags(packOutput, lookupProvider));
+        generator.addProvider(true, new ModGlobalLootTableModifierProvider(packOutput, lookupProvider));
     }
 }
