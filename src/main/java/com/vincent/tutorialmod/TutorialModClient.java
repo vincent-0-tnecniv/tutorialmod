@@ -1,5 +1,9 @@
 package com.vincent.tutorialmod;
 
+import com.vincent.tutorialmod.block.entity.ModBlockEntities;
+import com.vincent.tutorialmod.block.entity.renderer.ModBlockEntityRenderers;
+import com.vincent.tutorialmod.block.entity.renderer.PedestalBlockEntityRenderer;
+import com.vincent.tutorialmod.entity.renderer.ModEntityRenderers;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.keymapping.ModKeyMappings;
 import net.minecraft.client.Minecraft;
@@ -11,6 +15,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ComputeFovModifierEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -49,5 +54,11 @@ public class TutorialModClient {
             fovModifier *= 1f - deltaTicks * 0.15f;
             event.setNewFovModifier(fovModifier);
         }
+    }
+
+    @SubscribeEvent
+    public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+        ModBlockEntityRenderers.register(event);
+        ModEntityRenderers.register(event);
     }
 }
