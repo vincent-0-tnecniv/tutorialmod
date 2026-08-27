@@ -32,7 +32,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.getRK(ModBlocks.MAGIC_BLOCK))
                 .add(ModBlocks.getRK(ModBlocks.AZURITE_STAIRS))
                 .add(ModBlocks.getRK(ModBlocks.AZURITE_SLAB))
-                .add(ModBlocks.getRK(ModBlocks.PEDESTAL_BLOCK));
+                .add(ModBlocks.getRK(ModBlocks.PEDESTAL_BLOCK))
+                .add(ModBlocks.getRK(ModBlocks.CRYSTALLIZER));
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.getRK(ModBlocks.AZURITE_DEEPSLATE_ORE));

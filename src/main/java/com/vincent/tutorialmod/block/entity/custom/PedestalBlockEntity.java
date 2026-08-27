@@ -1,14 +1,20 @@
 package com.vincent.tutorialmod.block.entity.custom;
 
 import com.vincent.tutorialmod.block.entity.ModBlockEntities;
+import com.vincent.tutorialmod.menu.custom.PedestalMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,7 +25,7 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
 
-public class PedestalBlockEntity extends BlockEntity {
+public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
 
     public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
         @Override
@@ -77,5 +83,17 @@ public class PedestalBlockEntity extends BlockEntity {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         return saveWithoutMetadata(registries);
+    }
+
+    /* MENU */
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("block.tutorialmod.pedestal");
+    }
+
+    @Override
+    public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
+        return new PedestalMenu(containerId, inventory, this, this.inventory);
     }
 }

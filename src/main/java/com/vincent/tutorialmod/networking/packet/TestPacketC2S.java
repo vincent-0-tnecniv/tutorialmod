@@ -1,13 +1,11 @@
 package com.vincent.tutorialmod.networking.packet;
 
-import com.mojang.serialization.Codec;
 import com.vincent.tutorialmod.TutorialMod;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.ItemStack;
 
 public record TestPacketC2S(String name, int value) implements CustomPacketPayload {
 

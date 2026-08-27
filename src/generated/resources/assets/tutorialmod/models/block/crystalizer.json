@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "tutorialmod:block/crystalizer_bottom",
+    "front": "tutorialmod:block/crystalizer_front",
+    "side": "tutorialmod:block/crystalizer_side",
+    "top": "tutorialmod:block/crystalizer_top"
+  }
+}

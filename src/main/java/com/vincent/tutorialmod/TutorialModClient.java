@@ -6,6 +6,9 @@ import com.vincent.tutorialmod.block.entity.renderer.PedestalBlockEntityRenderer
 import com.vincent.tutorialmod.entity.renderer.ModEntityRenderers;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.keymapping.ModKeyMappings;
+import com.vincent.tutorialmod.menu.ModMenuTypes;
+import com.vincent.tutorialmod.menu.ModScreens;
+import com.vincent.tutorialmod.menu.custom.PedestalScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tags.ItemTags;
 import net.neoforged.api.distmarker.Dist;
@@ -16,6 +19,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ComputeFovModifierEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -60,5 +64,10 @@ public class TutorialModClient {
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         ModBlockEntityRenderers.register(event);
         ModEntityRenderers.register(event);
+    }
+
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        ModScreens.register(event);
     }
 }

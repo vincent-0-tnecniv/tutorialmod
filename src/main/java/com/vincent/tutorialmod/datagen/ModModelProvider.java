@@ -111,6 +111,8 @@ public class ModModelProvider extends FixedModelProvider {
         blockModels.createBerryBush(ModBlocks.GOJI_BERRY_BUSH, ModItems.GOJI_BERRIES);
 
         blockModels.createCropBlock(ModBlocks.RICE_CROP.get(), RiceCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+
+        blockModels.createHorizontallyRotatedBlock(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
     }
 
 

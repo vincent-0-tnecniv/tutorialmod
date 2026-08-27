@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.block.entity;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.block.entity.custom.CrystallizerBlockEntity;
 import com.vincent.tutorialmod.block.entity.custom.PedestalBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -16,6 +17,9 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<PedestalBlockEntity>> PEDESTAL_BE = BLOCK_ENTITIES.register("pedestal_be",
             () -> new BlockEntityType<>(PedestalBlockEntity::new, ModBlocks.PEDESTAL_BLOCK.get()));
+
+    public static final Supplier<BlockEntityType<CrystallizerBlockEntity>> CRYSTALIZER_BE = BLOCK_ENTITIES.register("crystalizer_be",
+            () -> new BlockEntityType<>(CrystallizerBlockEntity::new, ModBlocks.CRYSTALLIZER.get()));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

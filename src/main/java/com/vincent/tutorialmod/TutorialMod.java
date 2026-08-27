@@ -6,6 +6,7 @@ import com.vincent.tutorialmod.block.entity.ModBlockEntities;
 import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.effect.ModEffects;
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.menu.ModMenuTypes;
 import com.vincent.tutorialmod.potion.ModPotions;
 import com.vincent.tutorialmod.sound.ModSounds;
 import com.vincent.tutorialmod.stat.ModStats;
@@ -64,6 +65,7 @@ public class TutorialMod {
         ModPotions.register(modEventBus);
         ModVillagers.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}
@@ -152,6 +154,4 @@ public class TutorialMod {
             }
         }
     }
-
-
 }

@@ -99,6 +99,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PEDESTAL_BLOCK = registerBlock("pedestal",
             properties -> new PedestalBlock(properties.strength(2f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> CRYSTALLIZER = registerBlock("crystalizer",
+            properties -> new CrystallizerBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> ONION_CROP = registerBlockWithoutItem("onion_crop",
             properties -> new OnionCropBlock(properties
                     .randomTicks().instabreak().noCollision()
