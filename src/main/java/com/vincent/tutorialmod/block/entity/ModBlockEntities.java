@@ -18,7 +18,7 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<PedestalBlockEntity>> PEDESTAL_BE = BLOCK_ENTITIES.register("pedestal_be",
             () -> new BlockEntityType<>(PedestalBlockEntity::new, ModBlocks.PEDESTAL_BLOCK.get()));
 
-    public static final Supplier<BlockEntityType<CrystallizerBlockEntity>> CRYSTALIZER_BE = BLOCK_ENTITIES.register("crystalizer_be",
+    public static final Supplier<BlockEntityType<CrystallizerBlockEntity>> CRYSTALIZER_BE = BLOCK_ENTITIES.register("crystallizer_be",
             () -> new BlockEntityType<>(CrystallizerBlockEntity::new, ModBlocks.CRYSTALLIZER.get()));
 
     public static void register(IEventBus eventBus) {

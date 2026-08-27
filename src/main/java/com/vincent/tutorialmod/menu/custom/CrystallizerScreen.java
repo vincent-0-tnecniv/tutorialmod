@@ -11,10 +11,10 @@ import net.minecraft.world.entity.player.Inventory;
 public class CrystallizerScreen extends BaseAbstractContainerScreen<CrystallizerMenu> {
 
     private static final Identifier GUI_TEXTURE = Identifier.fromNamespaceAndPath(
-            TutorialMod.MOD_ID, "textures/gui/crystalizer/crystalizer_gui.png"
+            TutorialMod.MOD_ID, "textures/gui/crystallizer/crystallizer_gui.png"
     );
     private static final Identifier ARROW_TEXTURE = Identifier.fromNamespaceAndPath(
-            TutorialMod.MOD_ID, "textures/gui/crystalizer/arrow_progress.png"
+            TutorialMod.MOD_ID, "textures/gui/crystallizer/arrow_progress.png"
     );
     private static final Identifier CRYSTAL_TEXTURE = Identifier.parse("textures/block/amethyst_cluster.png");
 
@@ -25,7 +25,10 @@ public class CrystallizerScreen extends BaseAbstractContainerScreen<Crystallizer
     @Override
     public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
         super.extractBackground(graphics, mouseX, mouseY, a);
-        drawGuiAtCenter(graphics, GUI_TEXTURE);
+        int x = (width - imageWidth) / 2;
+        int y = (height - imageHeight) / 2;
+
+        drawGuiAtCenter(graphics, GUI_TEXTURE, x, y);
 
         renderProgressArrow(graphics, x, y);
         renderProgressCrystal(graphics, x, y);

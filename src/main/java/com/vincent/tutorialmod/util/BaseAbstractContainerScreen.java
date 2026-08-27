@@ -9,15 +9,11 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 
 public class BaseAbstractContainerScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
-
-    protected int x = (width - imageWidth) / 2;
-    protected int y = (height - imageHeight) / 2;
-
     public BaseAbstractContainerScreen(T menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
     }
 
-    public void drawGuiAtCenter(GuiGraphicsExtractor graphics, Identifier texture) {
+    public void drawGuiAtCenter(GuiGraphicsExtractor graphics, Identifier texture, int x, int y) {
         graphics.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, 0, 0, imageWidth, imageHeight, 256, 256);
     }
 }

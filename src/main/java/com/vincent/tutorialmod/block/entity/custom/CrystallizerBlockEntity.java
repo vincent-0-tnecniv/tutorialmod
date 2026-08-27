@@ -141,7 +141,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         boolean outputSlotAmount = canInsertAmountIntoOutputSlot(output.getCount());
         boolean outputSlotItem = canInsertItemIntoOutputSlot(output);
 
-        boolean hasInput = inventory.getResource(INPUT_SLOT).is(ModItems.AZURITE.get());
+        boolean hasInput = inventory.getResource(INPUT_SLOT).is(ModItems.RAW_AZURITE.get());
 
         return hasInput && outputSlotAmount && outputSlotItem;
     }

@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod.menu.custom;
 
 import com.vincent.tutorialmod.TutorialMod;
+import com.vincent.tutorialmod.util.BaseAbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -8,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
-public class PedestalScreen extends AbstractContainerScreen<PedestalMenu> {
+public class PedestalScreen extends BaseAbstractContainerScreen<PedestalMenu> {
 
     // Renderer, but for the screen (Client Side)
 
@@ -22,9 +23,9 @@ public class PedestalScreen extends AbstractContainerScreen<PedestalMenu> {
     @Override
     public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
         super.extractBackground(graphics, mouseX, mouseY, a);
-        int centerX = (width - imageWidth) / 2;
-        int centerY = (height - imageHeight) / 2;
-        graphics.blit(RenderPipelines.GUI_TEXTURED, GUI_TEXTURE, centerX, centerY, 0 , 0,
-                imageWidth, imageHeight, 256, 256);
+        int x = (width - imageWidth) / 2;
+        int y = (height - imageHeight) / 2;
+
+        drawGuiAtCenter(graphics, GUI_TEXTURE, x, y);
     }
 }
