@@ -4,6 +4,9 @@ import com.vincent.tutorialmod.block.custom.CrystallizerBlock;
 import com.vincent.tutorialmod.block.entity.ModBlockEntities;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.menu.custom.CrystallizerMenu;
+import com.vincent.tutorialmod.recipe.ModRecipes;
+import com.vincent.tutorialmod.recipe.custom.CrystallizerRecipe;
+import com.vincent.tutorialmod.recipe.custom.CrystallizerRecipeInput;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -12,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -20,6 +24,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,6 +35,8 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jspecify.annotations.Nullable;
+
+import java.util.Optional;
 
 public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -118,6 +125,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
+        // This is ALWAYS server side!!
         if(hasRecipe() && isOutputSlotEmptyOrReceivable()) {
             increaseCraftingProgress();
             setChanged(level, pos, state);
@@ -139,14 +147,23 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private boolean hasRecipe() {
-        ItemStack output = new ItemStack(ModItems.AZURITE.get());
+        Optional<RecipeHolder<CrystallizerRecipe>> recipe = getCurrentRecipe();
+        if(recipe.isEmpty()) {
+            return false;
+        }
 
-        boolean outputSlotAmount = canInsertAmountIntoOutputSlot(output.getCount());
-        boolean outputSlotItem = canInsertItemIntoOutputSlot(output);
+        ItemStack output = recipe.get().value().assemble(new CrystallizerRecipeInput(inventory.getResource(INPUT_SLOT).toStack()));
 
-        boolean hasInput = inventory.getResource(INPUT_SLOT).is(ModItems.RAW_AZURITE.get());
+        boolean canOutputSlotAmount = canInsertAmountIntoOutputSlot(output.getCount());
+        boolean matchOutputSlotItem = canInsertItemIntoOutputSlot(output);
 
-        return hasInput && outputSlotAmount && outputSlotItem;
+        return canOutputSlotAmount && matchOutputSlotItem;
+    }
+
+    private Optional<RecipeHolder<CrystallizerRecipe>> getCurrentRecipe() {
+        return ((ServerLevel) level).recipeAccess()
+                .getRecipeFor(ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE.get(),
+                        new CrystallizerRecipeInput(inventory.getResource(INPUT_SLOT).toStack()), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
@@ -166,7 +183,8 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(ModItems.AZURITE.get());
+        Optional<RecipeHolder<CrystallizerRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().value().assemble(new CrystallizerRecipeInput(inventory.getResource(INPUT_SLOT).toStack()));
 
         try(Transaction transaction = Transaction.openRoot()) {
             ItemAccess itemAccess = ItemAccess.forHandlerIndex(inventory, OUTPUT_SLOT);
