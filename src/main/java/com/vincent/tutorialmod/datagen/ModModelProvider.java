@@ -112,7 +112,7 @@ public class ModModelProvider extends FixedModelProvider {
 
         blockModels.createCropBlock(ModBlocks.RICE_CROP.get(), RiceCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
 
-        blockModels.createHorizontallyRotatedBlock(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
+        blockModels.createFurnace(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
     }
 
 

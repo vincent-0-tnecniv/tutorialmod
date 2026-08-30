@@ -1,5 +1,6 @@
 package com.vincent.tutorialmod.block.entity.custom;
 
+import com.vincent.tutorialmod.block.custom.CrystallizerBlock;
 import com.vincent.tutorialmod.block.entity.ModBlockEntities;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.menu.custom.CrystallizerMenu;
@@ -120,6 +121,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         if(hasRecipe() && isOutputSlotEmptyOrReceivable()) {
             increaseCraftingProgress();
             setChanged(level, pos, state);
+            level.setBlockAndUpdate(pos, state.setValue(CrystallizerBlock.LIT, true));
 
             if(hasCraftingFinished()) {
                 craftItem();
@@ -127,6 +129,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
             }
         } else {
             resetProgress();
+            level.setBlockAndUpdate(pos, state.setValue(CrystallizerBlock.LIT, false));
         }
     }
 
