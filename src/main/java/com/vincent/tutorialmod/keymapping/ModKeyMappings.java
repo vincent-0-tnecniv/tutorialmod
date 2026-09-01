@@ -1,6 +1,6 @@
 package com.vincent.tutorialmod.keymapping;
 
-import com.mojang.blaze3d.platform.InputConstants;
+import  com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.neoforged.neoforge.common.util.Lazy;
 import org.lwjgl.glfw.GLFW;

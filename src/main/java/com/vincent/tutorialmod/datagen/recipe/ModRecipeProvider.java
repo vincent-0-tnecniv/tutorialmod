@@ -1,6 +1,7 @@
-package com.vincent.tutorialmod.datagen;
+package com.vincent.tutorialmod.datagen.recipe;
 
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.datagen.recipe.custom.CrystallizerRecipeBuilder;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.util.datagen.BaseRecipeProvider;
 import net.minecraft.core.HolderLookup;
@@ -8,8 +9,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -71,5 +75,31 @@ public class ModRecipeProvider extends BaseRecipeProvider {
         allArmor(ModItems.AZURITE_HELMET, ModItems.AZURITE_CHESTPLATE,
                 ModItems.AZURITE_LEGGINGS, ModItems.AZURITE_BOOTS,
                 ModItems.AZURITE);
+
+        createCrystallizerRecipe(Items.STICK, Items.END_ROD, 2, output);
+        createCrystallizerRecipe(Blocks.DIRT, Items.NETHER_STAR, output);
+        createCrystallizerRecipe(ModItems.RAW_AZURITE, ModItems.AZURITE, 3, output);
+        createCrystallizerRecipe(ModItems.GOJI_BERRIES, ModItems.END_FIRE_STARTER, 4, output);
+        createCrystallizerRecipe(Items.REDSTONE, ModItems.DATA_TABLET, output);
+    }
+
+    private void createCrystallizerRecipe(RecipeCategory category, ItemLike ingredient, ItemLike result, int count, RecipeOutput output) {
+        CrystallizerRecipeBuilder.create(category, Ingredient.of(ingredient), result, count)
+                .unlockedBy(getHasName(ingredient), has(ingredient))
+                .save(output);
+    }
+
+    private void createCrystallizerRecipe(RecipeCategory category, ItemLike ingredient, ItemLike result, RecipeOutput output) {
+        CrystallizerRecipeBuilder.create(category, Ingredient.of(ingredient), result)
+                .unlockedBy(getHasName(ingredient), has(ingredient))
+                .save(output);
+    }
+
+    private void createCrystallizerRecipe(ItemLike ingredient, ItemLike result, int count, RecipeOutput output) {
+        createCrystallizerRecipe(RecipeCategory.MISC, ingredient, result, count, output);
+    }
+
+    private void createCrystallizerRecipe(ItemLike ingredient, ItemLike result, RecipeOutput output) {
+        createCrystallizerRecipe(RecipeCategory.MISC, ingredient, result, output);
     }
 }

@@ -63,6 +63,7 @@ public class ModEvents {
                 .executesOn(HandlerThread.MAIN);
 
         registrar.playToServer(TestPacketC2S.TYPE, TestPacketC2S.STREAM_CODEC, ClientPayloadHandler::handleTestPacket);
+        // any packets, whether from the server or client, MUST be registered here!
     }
 
     @SubscribeEvent

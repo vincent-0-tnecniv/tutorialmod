@@ -7,6 +7,7 @@ import com.vincent.tutorialmod.datagen.datapack.sounds.ModSoundsProvider;
 import com.vincent.tutorialmod.datagen.loot.ModBlockLootTableProvider;
 import com.vincent.tutorialmod.datagen.loot.ModExtraLootProvider;
 import com.vincent.tutorialmod.datagen.loot.ModGlobalLootTableModifierProvider;
+import com.vincent.tutorialmod.datagen.recipe.ModRecipeProvider;
 import com.vincent.tutorialmod.datagen.tags.*;
 import com.vincent.tutorialmod.datagen.villager.tags.ModPOITags;
 import com.vincent.tutorialmod.datagen.villager.tags.ModVillagerTradeTags;
