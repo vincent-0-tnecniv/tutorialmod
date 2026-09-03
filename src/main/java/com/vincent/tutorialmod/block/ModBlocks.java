@@ -3,6 +3,7 @@ package com.vincent.tutorialmod.block;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.custom.*;
 import com.vincent.tutorialmod.block.custom.PedestalBlock;
+import com.vincent.tutorialmod.datagen.worldgen.tree.ModTreeGrowers;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -173,6 +174,14 @@ public class ModBlocks {
                     return 30;
                 }
             });
+
+    public static final DeferredBlock<Block> DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling",
+            properties -> new SaplingBlock(ModTreeGrowers.DRIFTWOOD, properties.mapColor(MapColor.PLANT)
+                    .noCollision().randomTicks().instabreak().sound(SoundType.GRASS)
+                    .pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> POTTED_DRIFTWOOD_SAPLING = registerBlockWithoutItem("potted_driftwood_sapling",
+            properties -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), DRIFTWOOD_SAPLING,
+                    properties.instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,

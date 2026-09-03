@@ -80,6 +80,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
                         output.accept(ModBlocks.DRIFTWOOD_PLANKS);
                         output.accept(ModBlocks.DRIFTWOOD_LEAVES);
+                        output.accept(ModBlocks.DRIFTWOOD_SAPLING);
                     })
                     .build());
 

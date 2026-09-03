@@ -37,7 +37,7 @@ public class ModBlockLootTableProvider extends BaseBlockLootSubProvider {
         add(ModBlocks.AZURITE_NETHER_ORE.get(),
                 createMultipleOreDrops(ModBlocks.AZURITE_NETHER_ORE.get(), ModItems.RAW_AZURITE.get(), 4, 7));
         add(ModBlocks.AZURITE_END_ORE.get(),
-                createMultipleOreDrops(ModBlocks.AZURITE_NETHER_ORE.get(), ModItems.RAW_AZURITE.get(), 4, 7));
+                createMultipleOreDrops(ModBlocks.AZURITE_END_ORE.get(), ModItems.RAW_AZURITE.get(), 4, 7));
 
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
         dropSelf(ModBlocks.AZURITE_STAIRS.get());
@@ -63,7 +63,9 @@ public class ModBlockLootTableProvider extends BaseBlockLootSubProvider {
         dropSelf(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.get());
         dropSelf(ModBlocks.DRIFTWOOD_PLANKS.get());
 
-        add(ModBlocks.DRIFTWOOD_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.PEDESTAL_BLOCK.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(ModBlocks.DRIFTWOOD_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.DRIFTWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(ModBlocks.POTTED_DRIFTWOOD_SAPLING.get(), createPotFlowerItemTable(ModBlocks.DRIFTWOOD_SAPLING.get()));
+        dropSelf(ModBlocks.DRIFTWOOD_SAPLING.get());
 
         addCrop(ModItems.ONION, ModItems.ONION_SEEDS, ModBlocks.ONION_CROP, OnionCropBlock.AGE, 3);
 

@@ -100,6 +100,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.STRIPPED_DRIFTWOOD_LOG.getKey())
                 .add(ModBlocks.DRIFTWOOD_WOOD.getKey())
                 .add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.getKey());
+        tag(BlockTags.FLOWER_POTS)
+                .add(ModBlocks.POTTED_DRIFTWOOD_SAPLING.getKey());
     }
 
     // Use these methods for any adding of vanilla blocks
