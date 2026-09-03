@@ -20,6 +20,8 @@ public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_TREE_DRIFTWOOD = registerKey("add_tree_driftwood");
 
+    public static final ResourceKey<BiomeModifier> ADD_GOJI_BERRY_BUSH = registerKey("add_goji_berry_bush");
+
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         final var PF = context.lookup(Registries.PLACED_FEATURE);
         final var BIOMES = context.lookup(Registries.BIOME);
@@ -73,6 +75,20 @@ public class ModBiomeModifiers {
                         )),
                 HolderSet.direct(PF.getOrThrow(
                         ModPlacedFeatures.DRIFTWOOD_PLACED_KEY
+                )),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+        ));
+
+        context.register(ADD_GOJI_BERRY_BUSH, new BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(
+                        BIOMES.getOrThrow(
+                                Biomes.FOREST
+                        ),
+                        BIOMES.getOrThrow(
+                                Biomes.PLAINS
+                        )),
+                HolderSet.direct(PF.getOrThrow(
+                        ModPlacedFeatures.GOJI_BERRY_BUSH_PLACED_KEY
                 )),
                 GenerationStep.Decoration.VEGETAL_DECORATION
         ));

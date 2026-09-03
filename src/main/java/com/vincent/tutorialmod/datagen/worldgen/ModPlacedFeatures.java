@@ -12,9 +12,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
@@ -29,6 +27,9 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> DRIFTWOOD_PLACED_KEY =
             registerKey("driftwood_placed");
+
+    public static final ResourceKey<PlacedFeature> GOJI_BERRY_BUSH_PLACED_KEY =
+            registerKey("goji_berry_bush_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         final var CF = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -82,6 +83,14 @@ public class ModPlacedFeatures {
                         // it reads the block that the sapling survives on, and checks it during worldgen
                         // if this is undefined, the tree might spawn in areas like caves, the sky,
                         // or even on top of each other
+                ));
+
+        register(context, GOJI_BERRY_BUSH_PLACED_KEY, CF.getOrThrow(ModConfiguredFeatures.GOJI_BERRY_BUSH_KEY),
+                List.of(
+                        RarityFilter.onAverageOnceEvery(32),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome()
                 ));
     }
 
