@@ -1,5 +1,6 @@
 package com.vincent.tutorialmod.datagen;
 
+import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -7,6 +8,7 @@ import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
+import net.neoforged.neoforge.registries.datamaps.builtin.Strippable;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -25,5 +27,9 @@ public class ModDataMapProvider extends DataMapProvider {
                 .add(ModItems.ONION.getId(), new Compostable(0.5f), false)
                 .add(ModItems.GOJI_BERRIES.getId(), new Compostable(0.3f), false)
                 .add(ModItems.RICE_SHOOT.getId(), new Compostable(0.3f), false);
+
+        builder(NeoForgeDataMaps.STRIPPABLES)
+                .add(ModBlocks.DRIFTWOOD_LOG, new Strippable(ModBlocks.STRIPPED_DRIFTWOOD_LOG.get()), false)
+                .add(ModBlocks.DRIFTWOOD_WOOD, new Strippable(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.get()), false);
     }
 }

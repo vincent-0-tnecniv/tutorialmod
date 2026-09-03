@@ -1,6 +1,7 @@
 package com.vincent.tutorialmod.datagen.tags;
 
 import com.vincent.tutorialmod.TutorialMod;
+import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.tags.ModTags;
 import com.vincent.tutorialmod.util.datagen.BaseItemTagsProvider;
@@ -26,9 +27,9 @@ public class ModItemTagsProvider extends BaseItemTagsProvider {
                 Items.COPPER_INGOT
             ));
         tag(ModTags.Items.TRANSFORMABLE_ITEMS)
-                .add(ModItems.getRK(ModItems.AZURITE));
+                .add(ModItems.AZURITE.getKey());
         tag(ModTags.Items.AZURITE_REPAIRABLE)
-                .add(ModItems.getRK(ModItems.AZURITE));
+                .add(ModItems.AZURITE.getKey());
 
         allTools(ModItems.AZURITE_SWORD, ModItems.AZURITE_PICKAXE, ModItems.AZURITE_AXE,
                 ModItems.AZURITE_SHOVEL, ModItems.AZURITE_HOE, ModItems.AZURITE_SPEAR);
@@ -37,10 +38,23 @@ public class ModItemTagsProvider extends BaseItemTagsProvider {
                 ModItems.AZURITE_LEGGINGS, ModItems.AZURITE_BOOTS, true);
 
         tag(ItemTags.BOW_ENCHANTABLE)
-                .add(ModItems.getRK(ModItems.KAUPEN_BOW));
+                .add(ModItems.KAUPEN_BOW.getKey());
 
         tag(ItemTags.CREEPER_DROP_MUSIC_DISCS)
-                .add(ModItems.getRK(ModItems.BAR_BRAWL_MUSIC_DISC));
+                .add(ModItems.BAR_BRAWL_MUSIC_DISC.getKey());
 
+        tag(ItemTags.PLANKS)
+                .add(ModItems.getRK(ModBlocks.DRIFTWOOD_PLANKS.asItem()));
+        tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModItems.getRK(ModBlocks.DRIFTWOOD_LOG.asItem()))
+                .add(ModItems.getRK(ModBlocks.DRIFTWOOD_WOOD.asItem()))
+                .add(ModItems.getRK(ModBlocks.STRIPPED_DRIFTWOOD_LOG.asItem()))
+                .add(ModItems.getRK(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.asItem()));
+
+        tag(ModTags.Items.DRIFTWOOD_LOGS)
+                .add(ModItems.getRK(ModBlocks.DRIFTWOOD_LOG.asItem()))
+                .add(ModItems.getRK(ModBlocks.STRIPPED_DRIFTWOOD_LOG.asItem()))
+                .add(ModItems.getRK(ModBlocks.DRIFTWOOD_WOOD.asItem()))
+                .add(ModItems.getRK(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.asItem()));
     }
 }

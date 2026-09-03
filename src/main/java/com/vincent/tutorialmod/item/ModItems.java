@@ -93,6 +93,7 @@ public class ModItems {
         return BuiltInRegistries.ITEM.getResourceKey(item).get();
     }
 
+    @Deprecated
     public static ResourceKey<Item> getRK(DeferredItem<Item> item) {
         return getRK(item.get());
     }

@@ -95,7 +95,7 @@ public class ModModelProvider extends FixedModelProvider {
                         BlockModelGenerators.createBooleanModelDispatch(AzuriteLampBlock.CLICKED,
                                 litVariant, // This stores the lit variant
                                 defaultVariant // This stores the default variant (unlit)
-                                // Technically, with (N-1) of such modules, this can be done
+                                // Technically, with (N-1) recursions of such modules, this can be done
                                 // so that N variants are supported
 
                                 // Tip of Vincent: Recall about "The Piercer" in Fabric!
@@ -113,6 +113,15 @@ public class ModModelProvider extends FixedModelProvider {
         blockModels.createCropBlock(ModBlocks.RICE_CROP.get(), RiceCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
 
         blockModels.createFurnace(ModBlocks.CRYSTALLIZER.get(), TexturedModel.ORIENTABLE);
+
+        blockModels.woodProvider(ModBlocks.DRIFTWOOD_LOG.get()).logWithHorizontal(ModBlocks.DRIFTWOOD_LOG.get())
+                .wood(ModBlocks.DRIFTWOOD_WOOD.get());
+
+        blockModels.woodProvider(ModBlocks.STRIPPED_DRIFTWOOD_LOG.get()).logWithHorizontal(ModBlocks.STRIPPED_DRIFTWOOD_LOG.get())
+                .wood(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.get());
+
+        blockModels.createTrivialCube(ModBlocks.DRIFTWOOD_PLANKS.get());
+        blockModels.createTintedLeaves(ModBlocks.DRIFTWOOD_LEAVES.get(), TexturedModel.LEAVES, -12012265);
     }
 
 

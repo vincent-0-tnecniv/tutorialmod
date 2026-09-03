@@ -57,6 +57,14 @@ public class ModBlockLootTableProvider extends BaseBlockLootSubProvider {
         dropSelf(ModBlocks.PEDESTAL_BLOCK.get());
         dropSelf(ModBlocks.CRYSTALLIZER.get());
 
+        dropSelf(ModBlocks.DRIFTWOOD_LOG.get());
+        dropSelf(ModBlocks.STRIPPED_DRIFTWOOD_LOG.get());
+        dropSelf(ModBlocks.DRIFTWOOD_WOOD.get());
+        dropSelf(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.get());
+        dropSelf(ModBlocks.DRIFTWOOD_PLANKS.get());
+
+        add(ModBlocks.DRIFTWOOD_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.PEDESTAL_BLOCK.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
         addCrop(ModItems.ONION, ModItems.ONION_SEEDS, ModBlocks.ONION_CROP, OnionCropBlock.AGE, 3);
 
         addBerry(ModBlocks.GOJI_BERRY_BUSH, ModItems.GOJI_BERRIES);

@@ -74,6 +74,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.AZURITE_LAMP);
                         output.accept(ModBlocks.PEDESTAL_BLOCK);
                         output.accept(ModBlocks.CRYSTALLIZER);
+                        output.accept(ModBlocks.DRIFTWOOD_LOG);
+                        output.accept(ModBlocks.DRIFTWOOD_WOOD);
+                        output.accept(ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+                        output.accept(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+                        output.accept(ModBlocks.DRIFTWOOD_PLANKS);
+                        output.accept(ModBlocks.DRIFTWOOD_LEAVES);
                     })
                     .build());
 

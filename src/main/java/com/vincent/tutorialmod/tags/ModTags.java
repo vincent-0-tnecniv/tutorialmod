@@ -26,6 +26,8 @@ public class ModTags {
 
         public static final TagKey<Item> AZURITE_REPAIRABLE = createTag("azurite_repairable");
 
+        public static final TagKey<Item> DRIFTWOOD_LOGS = createTag("driftwood_logs");
+
         public static TagKey<Item> createTag(String name){
             return ItemTags.create(Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, name));
         }

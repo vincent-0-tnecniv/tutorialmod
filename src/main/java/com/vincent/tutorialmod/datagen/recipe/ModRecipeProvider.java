@@ -3,6 +3,7 @@ package com.vincent.tutorialmod.datagen.recipe;
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.datagen.recipe.custom.CrystallizerRecipeBuilder;
 import com.vincent.tutorialmod.item.ModItems;
+import com.vincent.tutorialmod.tags.ModTags;
 import com.vincent.tutorialmod.util.datagen.BaseRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -81,6 +82,11 @@ public class ModRecipeProvider extends BaseRecipeProvider {
         createCrystallizerRecipe(ModItems.RAW_AZURITE, ModItems.AZURITE, 3, output);
         createCrystallizerRecipe(ModItems.GOJI_BERRIES, ModItems.END_FIRE_STARTER, 4, output);
         createCrystallizerRecipe(Items.REDSTONE, ModItems.DATA_TABLET, output);
+
+        woodFromLogs(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.DRIFTWOOD_LOG);
+        woodFromLogs(ModBlocks.STRIPPED_DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+
+        planksFromLog(ModBlocks.DRIFTWOOD_PLANKS, ModTags.Items.DRIFTWOOD_LOGS, 4);
     }
 
     private void createCrystallizerRecipe(RecipeCategory category, ItemLike ingredient, ItemLike result, int count, RecipeOutput output) {

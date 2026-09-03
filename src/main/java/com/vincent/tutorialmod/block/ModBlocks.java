@@ -4,6 +4,9 @@ import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.custom.*;
 import com.vincent.tutorialmod.block.custom.PedestalBlock;
 import com.vincent.tutorialmod.item.ModItems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -12,8 +15,10 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -117,6 +122,57 @@ public class ModBlocks {
                     .randomTicks().instabreak().noCollision()
                     .pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
 
+    public static final DeferredBlock<Block> DRIFTWOOD_LOG = registerBlock("driftwood_log",
+            properties -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                    .strength(2).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> DRIFTWOOD_WOOD = registerBlock("driftwood_wood",
+            properties -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                    .strength(2).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> STRIPPED_DRIFTWOOD_LOG = registerBlock("stripped_driftwood_log",
+            properties -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                    .strength(2).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> STRIPPED_DRIFTWOOD_WOOD = registerBlock("stripped_driftwood_wood",
+            properties -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS)
+                    .strength(2).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+
+    public static final DeferredBlock<Block> DRIFTWOOD_PLANKS = registerBlock("driftwood_planks",
+            properties -> new Block(properties.instrument(NoteBlockInstrument.BASS)
+                    .strength(2).sound(SoundType.CHERRY_WOOD).ignitedByLava()) {
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+
+    public static final DeferredBlock<Block> DRIFTWOOD_LEAVES = registerBlock("driftwood_leaves",
+            properties -> new UntintedParticleLeavesBlock(0.01f, ParticleTypes.CHERRY_LEAVES,
+                    properties.strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion()
+                            .isValidSpawn(Blocks::ocelotOrParrot).ignitedByLava().pushReaction(PushReaction.DESTROY)) {
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
 
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
@@ -166,6 +222,7 @@ public class ModBlocks {
         return BuiltInRegistries.BLOCK.getResourceKey(block).get();
     }
 
+    @Deprecated
     public static ResourceKey<Block> getRK(DeferredBlock<Block> block) {
         return BuiltInRegistries.BLOCK.getResourceKey(block.get()).get();
     }
