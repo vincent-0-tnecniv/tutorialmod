@@ -23,8 +23,7 @@ public class ModMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<CrystallizerMenu>> CRYSTALLIZER_MENU =
             registerMenuType("crystallizer_menu", CrystallizerMenu::new);
 
-    private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,
-                                                                                                               IContainerFactory<T> factory){
+    private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory){
         return MENU_TYPES.register(name, () -> IMenuTypeExtension.create(factory));
     }
 

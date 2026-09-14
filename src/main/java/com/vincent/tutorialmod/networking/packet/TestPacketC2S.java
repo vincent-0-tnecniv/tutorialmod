@@ -25,7 +25,7 @@ public record TestPacketC2S(String name, int value) implements CustomPacketPaylo
                     // This is what the DATA TYPE of the packet would be
                     // This tells the codec how to convert it to a ByteBuf
 
-                    // For primitive data type (e.g. integer ) codecs, using ByteBufCodecs
+                    // For primitive data type (e.g. integer) codecs, using ByteBufCodecs
 
                     ByteBufCodecs.STRING_UTF8,
                     TestPacketC2S::name,
@@ -37,7 +37,8 @@ public record TestPacketC2S(String name, int value) implements CustomPacketPaylo
                     ByteBufCodecs.VAR_INT,
                     TestPacketC2S::value,
 
-                    // For custom objects, in vanilla, there would usually be a codec of that object
+                    // For custom objects, there would usually be a codec of that object in vanilla
+                    // If not, a codec can usually be created with
 
                     TestPacketC2S::new
                     // Making a codec always ends with a constructor of the packet
@@ -45,7 +46,7 @@ public record TestPacketC2S(String name, int value) implements CustomPacketPaylo
 
     // Any StreamCodec has two types, e.g. StreamCodec<T, U>
     // T is the ByteBuf
-    // In Minecraft - a registry-oriented environment - can use RegistryFriendlyByteBuf
+    // In Minecraft - a registry-oriented environment - RegistryFriendlyByteBuf is generally used
     // U is the class to be turned into ByteBuf and to be created using ByteBuf
 
     // In other words,

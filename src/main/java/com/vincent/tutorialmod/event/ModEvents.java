@@ -53,7 +53,6 @@ public class ModEvents {
             player.getCooldowns().addCooldown(player.getWeaponItem(), 100);
             player.getMainHandItem().hurtAndBreak(15, player, player.getUsedItemHand());
             player.awardStat(ModStats.TIMES_PARRIED.get(), 1);
-
         }
     }
 

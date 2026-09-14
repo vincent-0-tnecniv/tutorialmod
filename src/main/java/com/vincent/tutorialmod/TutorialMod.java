@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.vincent.tutorialmod.block.ModBlocks;
 import com.vincent.tutorialmod.block.entity.ModBlockEntities;
 import com.vincent.tutorialmod.data.ModDataComponents;
+import com.vincent.tutorialmod.datagen.worldgen.tree.ModTrunkPlacerTypes;
 import com.vincent.tutorialmod.effect.ModEffects;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.menu.ModMenuTypes;
@@ -68,6 +69,7 @@ public class TutorialMod {
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
+        ModTrunkPlacerTypes.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {}

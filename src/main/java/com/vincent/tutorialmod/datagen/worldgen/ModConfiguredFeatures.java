@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.datagen.worldgen;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.datagen.worldgen.tree.SpiralTrunkPlacer;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -56,12 +57,12 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.simple(
                         ModBlocks.DRIFTWOOD_LOG.get() // the LOG of the tree
                 ),
-                new ForkingTrunkPlacer(4, 3, 4),
+                new SpiralTrunkPlacer(4, 3, 4),
 
                 BlockStateProvider.simple(
                         ModBlocks.DRIFTWOOD_LEAVES.get() // the LEAVES of the tree
                 ),
-                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
+                new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(3), 3),
 
                 new TwoLayersFeatureSize(1, 0, 2),
                 // the minimum bounding box for the sapling to grow as a tree
@@ -86,6 +87,8 @@ public class ModConfiguredFeatures {
                                 BlockPredicate.ONLY_IN_AIR_PREDICATE
                         )))));
     }
+
+
 
     private static void registerSimpleOverworldOres(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> oreKey,
                                                     Block stoneOreBlock, Block deepslateOreBlock, int size) {
