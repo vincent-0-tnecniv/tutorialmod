@@ -57,6 +57,8 @@ public class ModModelProvider extends FixedModelProvider {
         itemModels.declareCustomModelItem(ModItems.BLIZZARD_STAFF.get());
         itemModels.generateFlatItem(ModItems.RADIATION_STAFF.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        itemModels.generateFlatItem(ModItems.DODO_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+
 //        blockModels.createTrivialCube(ModBlocks.AZURITE_BLOCK.get());
         // added with the block family
         blockModels.createTrivialCube(ModBlocks.RAW_AZURITE_BLOCK.get());

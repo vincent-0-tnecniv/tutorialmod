@@ -7,6 +7,7 @@ import com.vincent.tutorialmod.data.ModDataComponents;
 import com.vincent.tutorialmod.datagen.worldgen.tree.ModFoliagePlacerTypes;
 import com.vincent.tutorialmod.datagen.worldgen.tree.ModTrunkPlacerTypes;
 import com.vincent.tutorialmod.effect.ModEffects;
+import com.vincent.tutorialmod.entity.ModEntities;
 import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.menu.ModMenuTypes;
 import com.vincent.tutorialmod.potion.ModPotions;
@@ -25,7 +26,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -43,7 +43,7 @@ public class TutorialMod {
 
     public TutorialMod(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+//        modEventBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -72,9 +72,8 @@ public class TutorialMod {
         ModRecipes.register(modEventBus);
         ModTrunkPlacerTypes.register(modEventBus);
         ModFoliagePlacerTypes.register(modEventBus);
+        ModEntities.register(modEventBus);
     }
-
-    private void commonSetup(FMLCommonSetupEvent event) {}
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         addItemToCreativeTab(event, CreativeModeTabs.INGREDIENTS, List.of(

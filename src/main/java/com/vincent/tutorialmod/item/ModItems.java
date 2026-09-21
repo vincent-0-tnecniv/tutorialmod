@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.item;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.entity.ModEntities;
 import com.vincent.tutorialmod.food.ModFoods;
 import com.vincent.tutorialmod.item.custom.DataTabletItem;
 import com.vincent.tutorialmod.item.custom.MetalDetectorItem;
@@ -88,6 +89,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> RADIATION_STAFF = ITEMS.registerItem("radiation_staff",
             properties -> new Item(properties.rarity(Rarity.EPIC).stacksTo(1)));
+
+    public static final DeferredItem<Item> DODO_SPAWN_EGG = ITEMS.registerItem("dodo_spawn_egg",
+            properties -> new SpawnEggItem(properties.spawnEgg(ModEntities.DODO.get())));
 
     public static ResourceKey<Item> getRK(Item item) {
         var key = BuiltInRegistries.ITEM.getResourceKey(item);

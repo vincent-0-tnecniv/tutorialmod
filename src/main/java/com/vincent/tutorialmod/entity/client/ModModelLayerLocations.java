@@ -1,0 +1,12 @@
+package com.vincent.tutorialmod.entity.client;
+
+import com.vincent.tutorialmod.TutorialMod;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.resources.Identifier;
+
+public class ModModelLayerLocations {
+    public static final ModelLayerLocation DODO =
+            new ModelLayerLocation(Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, "dodo"), "main");
+
+
+}

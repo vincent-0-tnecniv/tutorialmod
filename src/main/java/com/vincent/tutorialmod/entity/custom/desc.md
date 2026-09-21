@@ -1,0 +1,1 @@
+This directory will store all the custom entity class, and their behaviors.

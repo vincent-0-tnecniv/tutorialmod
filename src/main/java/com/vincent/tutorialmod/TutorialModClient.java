@@ -1,7 +1,7 @@
 package com.vincent.tutorialmod;
 
 import com.vincent.tutorialmod.block.entity.renderer.ModBlockEntityRenderers;
-import com.vincent.tutorialmod.entity.renderer.ModEntityRenderers;
+import com.vincent.tutorialmod.entity.ModEntityEvents;
 import com.vincent.tutorialmod.keymapping.ModKeyMappings;
 import com.vincent.tutorialmod.menu.ModScreens;
 import net.minecraft.client.Minecraft;
@@ -58,7 +58,6 @@ public class TutorialModClient {
     @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         ModBlockEntityRenderers.register(event);
-        ModEntityRenderers.register(event);
     }
 
     @SubscribeEvent
