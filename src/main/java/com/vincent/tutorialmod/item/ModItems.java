@@ -90,7 +90,11 @@ public class ModItems {
             properties -> new Item(properties.rarity(Rarity.EPIC).stacksTo(1)));
 
     public static ResourceKey<Item> getRK(Item item) {
-        return BuiltInRegistries.ITEM.getResourceKey(item).get();
+        var key = BuiltInRegistries.ITEM.getResourceKey(item);
+        if(key.isEmpty()) {
+            throw new IllegalStateException("Item not found: " + item);
+        }
+        return key.get();
     }
 
     @Deprecated

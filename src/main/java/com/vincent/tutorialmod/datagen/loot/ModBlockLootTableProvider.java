@@ -72,6 +72,8 @@ public class ModBlockLootTableProvider extends BaseBlockLootSubProvider {
         addBerry(ModBlocks.GOJI_BERRY_BUSH, ModItems.GOJI_BERRIES);
 
         addCrop(ModItems.RICE_SHOOT, ModItems.RICE_SHOOT, ModBlocks.RICE_CROP, RiceCropBlock.AGE, 7);
+
+        dropSelf(ModBlocks.KAUPEN_PORTAL.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float minDrops, float maxDrops) {

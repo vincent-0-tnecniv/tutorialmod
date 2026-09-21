@@ -17,15 +17,16 @@ import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import org.jspecify.annotations.Nullable;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -53,15 +54,15 @@ public class FixedBlockModelGenerators extends BlockModelGenerators {
 
         public BlockFamilyProvider(TextureMapping mapping) {
             super();
-            this.models = new HashMap();
-            this.skipGeneratingModelsFor = new HashSet();
+            this.models = new HashMap<>();
+            this.skipGeneratingModelsFor = new HashSet<>();
             this.mapping = mapping;
         }
 
         public BlockFamilyProvider fullBlock(Block block, ModelTemplate template) {
             this.fullBlock = BlockModelGenerators.plainModel(template.create(block, this.mapping, FixedBlockModelGenerators.this.modelOutput));
             if (BlockModelGenerators.FULL_BLOCK_MODEL_CUSTOM_GENERATORS.containsKey(block)) {
-                FixedBlockModelGenerators.this.blockStateOutput.accept(((BlockStateGeneratorSupplier)BlockModelGenerators.FULL_BLOCK_MODEL_CUSTOM_GENERATORS.get(block)).create(block, this.fullBlock, this.mapping, FixedBlockModelGenerators.this.modelOutput));
+                FixedBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.FULL_BLOCK_MODEL_CUSTOM_GENERATORS.get(block).create(block, this.fullBlock, this.mapping, FixedBlockModelGenerators.this.modelOutput));
             } else {
                 FixedBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, BlockModelGenerators.variant(this.fullBlock)));
             }
@@ -154,7 +155,7 @@ public class FixedBlockModelGenerators extends BlockModelGenerators {
                 MultiVariant standingRot2 = BlockModelGenerators.plainVariant(ModelTemplates.SIGN_ROT_2.create(ModelLocationUtils.getModelLocation(sign, "_rot_2"), mapping, FixedBlockModelGenerators.this.modelOutput));
                 MultiVariant standingRot3 = BlockModelGenerators.plainVariant(ModelTemplates.SIGN_ROT_3.create(ModelLocationUtils.getModelLocation(sign, "_rot_3"), mapping, FixedBlockModelGenerators.this.modelOutput));
                 FixedBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createSign(sign, standingRot0, standingRot1, standingRot2, standingRot3));
-                Block wallSign = (Block)this.family.getVariants().get(net.minecraft.data.BlockFamily.Variant.WALL_SIGN);
+                Block wallSign = this.family.getVariants().get(BlockFamily.Variant.WALL_SIGN);
                 MultiVariant wallModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_SIGN.create(wallSign, mapping, FixedBlockModelGenerators.this.modelOutput));
                 FixedBlockModelGenerators.this.blockStateOutput.accept(MultiVariantGenerator.dispatch(wallSign, wallModel).with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING_ALT));
                 FixedBlockModelGenerators.this.registerSimpleFlatItemModel(sign.asItem());
@@ -170,10 +171,10 @@ public class FixedBlockModelGenerators extends BlockModelGenerators {
             return this.hangingSign(hangingSign, this.family.get(net.minecraft.data.BlockFamily.Variant.STRIPPED_LOG), net.minecraft.data.BlockFamily.Variant.WALL_HANGING_SIGN);
         }
 
-        public BlockFamilyProvider hangingSign(Block hangingSign, Block particleBlock, BlockFamily.Variant wallVarient) {
+        public BlockFamilyProvider hangingSign(Block hangingSign, Block particleBlock, BlockFamily.Variant wallVariant) {
             TextureMapping mapping = (new TextureMapping()).put(TextureSlot.ALL, TextureMapping.getBlockTexture(hangingSign)).put(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(particleBlock));
             FixedBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createHangingSign(hangingSign, BlockModelGenerators.plainVariant(ModelTemplates.HANGING_SIGN_ROT_0.create(ModelLocationUtils.getModelLocation(hangingSign, "_rot_0"), mapping, FixedBlockModelGenerators.this.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.HANGING_SIGN_ROT_1.create(ModelLocationUtils.getModelLocation(hangingSign, "_rot_1"), mapping, FixedBlockModelGenerators.this.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.HANGING_SIGN_ROT_2.create(ModelLocationUtils.getModelLocation(hangingSign, "_rot_2"), mapping, FixedBlockModelGenerators.this.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.HANGING_SIGN_ROT_3.create(ModelLocationUtils.getModelLocation(hangingSign, "_rot_3"), mapping, FixedBlockModelGenerators.this.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.ATTACHED_HANGING_SIGN_ROT_0.create(ModelLocationUtils.getModelLocation(hangingSign, "_attached_rot_0"), mapping, FixedBlockModelGenerators.this.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.ATTACHED_HANGING_SIGN_ROT_1.create(ModelLocationUtils.getModelLocation(hangingSign, "_attached_rot_1"), mapping, FixedBlockModelGenerators.this.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.ATTACHED_HANGING_SIGN_ROT_2.create(ModelLocationUtils.getModelLocation(hangingSign, "_attached_rot_2"), mapping, FixedBlockModelGenerators.this.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.ATTACHED_HANGING_SIGN_ROT_3.create(ModelLocationUtils.getModelLocation(hangingSign, "_attached_rot_3"), mapping, FixedBlockModelGenerators.this.modelOutput))));
-            Block wallSign = this.family.get(wallVarient);
+            Block wallSign = this.family.get(wallVariant);
             MultiVariant wallModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_HANGING_SIGN.create(wallSign, mapping, FixedBlockModelGenerators.this.modelOutput));
             FixedBlockModelGenerators.this.blockStateOutput.accept(MultiVariantGenerator.dispatch(wallSign, wallModel).with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING_ALT));
             FixedBlockModelGenerators.this.registerSimpleFlatItemModel(hangingSign.asItem());
@@ -202,7 +203,7 @@ public class FixedBlockModelGenerators extends BlockModelGenerators {
         }
 
         public BlockFamilyProvider fullBlockVariant(Block variant) {
-            TexturedModel model = (TexturedModel)BlockModelGenerators.TEXTURED_MODELS.getOrDefault(variant, TexturedModel.CUBE.get(variant));
+            TexturedModel model = BlockModelGenerators.TEXTURED_MODELS.getOrDefault(variant, TexturedModel.CUBE.get(variant));
             MultiVariant variantModel = BlockModelGenerators.plainVariant(model.create(variant, FixedBlockModelGenerators.this.modelOutput));
             FixedBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(variant, variantModel));
             return this;
@@ -230,7 +231,7 @@ public class FixedBlockModelGenerators extends BlockModelGenerators {
         }
 
         public Identifier getOrCreateModel(ModelTemplate modelTemplate, Block block) {
-            return (Identifier)this.models.computeIfAbsent(modelTemplate, (template) -> template.create(block, this.mapping, FixedBlockModelGenerators.this.modelOutput));
+            return this.models.computeIfAbsent(modelTemplate, (template) -> template.create(block, this.mapping, FixedBlockModelGenerators.this.modelOutput));
         }
 
         public BlockFamilyProvider generateFor(BlockFamily family) {

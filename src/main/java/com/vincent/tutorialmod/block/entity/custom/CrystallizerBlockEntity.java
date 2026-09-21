@@ -2,7 +2,6 @@ package com.vincent.tutorialmod.block.entity.custom;
 
 import com.vincent.tutorialmod.block.custom.CrystallizerBlock;
 import com.vincent.tutorialmod.block.entity.ModBlockEntities;
-import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.menu.custom.CrystallizerMenu;
 import com.vincent.tutorialmod.recipe.ModRecipes;
 import com.vincent.tutorialmod.recipe.custom.CrystallizerRecipe;
@@ -161,8 +160,9 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private Optional<RecipeHolder<CrystallizerRecipe>> getCurrentRecipe() {
+        if(level == null) return Optional.empty();
         return ((ServerLevel) level).recipeAccess()
-                .getRecipeFor(ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE.get(),
+                .getRecipeFor(ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE().get(),
                         new CrystallizerRecipeInput(inventory.getResource(INPUT_SLOT).toStack()), level);
     }
 
@@ -184,6 +184,9 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
 
     private void craftItem() {
         Optional<RecipeHolder<CrystallizerRecipe>> recipe = getCurrentRecipe();
+        if(recipe.isEmpty()) {
+            return;
+        }
         ItemStack output = recipe.get().value().assemble(new CrystallizerRecipeInput(inventory.getResource(INPUT_SLOT).toStack()));
 
         try(Transaction transaction = Transaction.openRoot()) {

@@ -114,7 +114,6 @@ public abstract class BaseItemTagsProvider extends ItemTagsProvider {
                 } catch(ClassCastException e) {
                     throw new ClassCastException("Cannot cast " + obj + " to DeferredItem<Item>");
                 }
-
             }
         }
     }

@@ -11,15 +11,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
-
-import java.util.List;
 
 public class AzuriteLampBlock extends BlockWithState {
 
     public static final BooleanProperty CLICKED = BooleanProperty.create("clicked");
-    public static final IntegerProperty TOC =  IntegerProperty.create("toc", 0, 3);
 
     public AzuriteLampBlock(Properties properties) {
         super(properties);

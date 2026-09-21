@@ -2,7 +2,6 @@ package com.vincent.tutorialmod.block;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.custom.*;
-import com.vincent.tutorialmod.block.custom.PedestalBlock;
 import com.vincent.tutorialmod.datagen.worldgen.tree.ModTreeGrowers;
 import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.core.BlockPos;
@@ -183,6 +182,9 @@ public class ModBlocks {
             properties -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), DRIFTWOOD_SAPLING,
                     properties.instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> KAUPEN_PORTAL = registerBlock("kaupen_portal",
+            properties -> new KaupenPortalBlock(properties.strength(3f)));
+
     private static DeferredBlock<Block> registerExperienceDroppingOre(String name, int minXp, int maxXp, float strength, SoundType soundType) {
         return registerBlock(name,
                 properties -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), properties.strength(strength)
@@ -228,12 +230,20 @@ public class ModBlocks {
     }
 
     public static ResourceKey<Block> getRK(Block block) {
-        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+        var key = BuiltInRegistries.BLOCK.getResourceKey(block);
+        if(key.isEmpty()) {
+            throw new IllegalArgumentException(String.format("No block found with name %s.", block));
+        }
+        return key.get();
     }
 
     @Deprecated
     public static ResourceKey<Block> getRK(DeferredBlock<Block> block) {
-        return BuiltInRegistries.BLOCK.getResourceKey(block.get()).get();
+        var key = BuiltInRegistries.BLOCK.getResourceKey(block.get());
+        if(key.isEmpty()) {
+            throw new IllegalStateException(String.format("No block found with name %s.", block.get()));
+        }
+        return key.get();
     }
 
     public static void register(IEventBus eventBus) {

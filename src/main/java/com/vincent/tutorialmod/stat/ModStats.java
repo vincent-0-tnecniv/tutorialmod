@@ -16,8 +16,8 @@ public class ModStats {
     public static final Supplier<Identifier> TIMES_PARRIED = makeCustomStat("times_parried");
 
     private static Supplier<Identifier> makeCustomStat(String key){
-        Identifier statIdentifer = Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, key);
-        return CUSTOM_STATS.register(key, () -> statIdentifer);
+        Identifier statIdentifier = Identifier.fromNamespaceAndPath(TutorialMod.MOD_ID, key);
+        return CUSTOM_STATS.register(key, () -> statIdentifier);
     }
 
     public static void register(IEventBus bus) {

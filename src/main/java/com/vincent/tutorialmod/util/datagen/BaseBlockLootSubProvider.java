@@ -1,8 +1,5 @@
 package com.vincent.tutorialmod.util.datagen;
 
-import com.vincent.tutorialmod.block.ModBlocks;
-import com.vincent.tutorialmod.block.custom.OnionCropBlock;
-import com.vincent.tutorialmod.item.ModItems;
 import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;

@@ -3,8 +3,6 @@ package com.vincent.tutorialmod.menu.custom;
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.util.BaseAbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;

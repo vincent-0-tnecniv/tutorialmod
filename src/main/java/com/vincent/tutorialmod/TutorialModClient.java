@@ -1,14 +1,9 @@
 package com.vincent.tutorialmod;
 
-import com.vincent.tutorialmod.block.entity.ModBlockEntities;
 import com.vincent.tutorialmod.block.entity.renderer.ModBlockEntityRenderers;
-import com.vincent.tutorialmod.block.entity.renderer.PedestalBlockEntityRenderer;
 import com.vincent.tutorialmod.entity.renderer.ModEntityRenderers;
-import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.keymapping.ModKeyMappings;
-import com.vincent.tutorialmod.menu.ModMenuTypes;
 import com.vincent.tutorialmod.menu.ModScreens;
-import com.vincent.tutorialmod.menu.custom.PedestalScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tags.ItemTags;
 import net.neoforged.api.distmarker.Dist;

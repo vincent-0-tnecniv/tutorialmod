@@ -26,6 +26,7 @@ public class CrystallizerRecipeBuilder implements RecipeBuilder {
         this.category = category;
         this.result = result;
         this.ingredient = ingredient;
+        this.group = null;
     }
 
     public static CrystallizerRecipeBuilder create(RecipeCategory category, Ingredient ingredient, ItemLike result, int count) {

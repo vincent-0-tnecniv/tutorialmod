@@ -1,9 +1,5 @@
 package com.vincent.tutorialmod.util.datagen;
 
-import com.vincent.tutorialmod.datagen.loot.ModExtraLootProvider;
-import com.vincent.tutorialmod.tags.ModTags;
-import net.minecraft.advancements.predicates.BlockPredicate;
-import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.Holder;
@@ -19,11 +15,13 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.predicates.*;
+import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.AddTableLootModifier;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
@@ -33,8 +31,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 public abstract class BaseGlobalLootModifierProvider extends GlobalLootModifierProvider {
-    public BaseGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid) {
-        super(output, registries, modid);
+    public BaseGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String mod_id) {
+        super(output, registries, mod_id);
     }
 
     protected AddTableLootModifier customLoot(LootItemCondition[] list, ResourceKey<LootTable> modifiedLootTable) {

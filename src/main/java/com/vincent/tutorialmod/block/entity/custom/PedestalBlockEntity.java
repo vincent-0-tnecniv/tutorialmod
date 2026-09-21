@@ -32,6 +32,7 @@ public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
         protected void onContentsChanged(int index, ItemStack previousContents) {
             super.onContentsChanged(index, previousContents);
             PedestalBlockEntity.this.setChanged();
+            if(level == null) return;
             if(!level.isClientSide()){
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }

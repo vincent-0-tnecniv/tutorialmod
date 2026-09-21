@@ -25,6 +25,10 @@ public class ModPOITags extends PoiTypeTagsProvider {
     }
 
     protected TagEntry convert(Holder<PoiType> profession) {
-        return TagEntry.element(profession.unwrapKey().get().identifier());
+        var key = profession.unwrapKey();
+        if (key.isEmpty()) {
+            throw new IllegalStateException("Profession" + profession.getRegisteredName() + " is empty");
+        }
+        return TagEntry.element(key.get().identifier());
     }
 }

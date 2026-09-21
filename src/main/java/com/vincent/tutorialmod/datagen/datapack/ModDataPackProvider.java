@@ -9,6 +9,7 @@ import com.vincent.tutorialmod.datagen.villager.datapack.ModVillagerTrades;
 import com.vincent.tutorialmod.datagen.worldgen.ModBiomeModifiers;
 import com.vincent.tutorialmod.datagen.worldgen.ModConfiguredFeatures;
 import com.vincent.tutorialmod.datagen.worldgen.ModPlacedFeatures;
+import com.vincent.tutorialmod.datagen.worldgen.dimension.ModDimensions;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -29,7 +30,10 @@ public class ModDataPackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.TRADE_SET, ModTradeSets::bootstrap)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
-            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap);
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
+            .add(Registries.DIMENSION_TYPE, ModDimensions::bootstrapType)
+            .add(Registries.LEVEL_STEM, ModDimensions::bootstrapStem);
+
 
     public ModDataPackProvider(PackOutput output, CompletableFuture<Provider> registries) {
         super(output, registries, BUILDER, Set.of(TutorialMod.MOD_ID));

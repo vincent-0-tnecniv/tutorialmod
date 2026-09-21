@@ -1,9 +1,7 @@
 package com.vincent.tutorialmod.datagen.tags;
 
 import com.vincent.tutorialmod.TutorialMod;
-import com.vincent.tutorialmod.datagen.datapack.damage_type.ModDamageTypes;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;

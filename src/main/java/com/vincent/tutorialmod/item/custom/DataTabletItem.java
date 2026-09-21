@@ -38,6 +38,7 @@ public class DataTabletItem extends Item {
         super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
         if(itemStack.has(ModDataComponents.COORDINATES)){
             BlockPos position = itemStack.get(ModDataComponents.COORDINATES);
+            if(position == null) return;
             String foundPosition = "(" +  position.getX() + ", " + position.getY() + ", " + position.getZ() + ")";
             builder.accept(Component.literal(foundPosition));
         }

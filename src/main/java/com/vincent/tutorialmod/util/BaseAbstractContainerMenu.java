@@ -1,7 +1,6 @@
 package com.vincent.tutorialmod.util;
 
-import com.vincent.tutorialmod.block.ModBlocks;
-import net.minecraft.core.BlockPos;
+import com.vincent.tutorialmod.TutorialMod;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -41,7 +40,7 @@ public abstract class BaseAbstractContainerMenu extends AbstractContainerMenu {
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        if (!sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
@@ -58,7 +57,7 @@ public abstract class BaseAbstractContainerMenu extends AbstractContainerMenu {
                 return ItemStack.EMPTY;
             }
         } else {
-            System.out.println("Invalid slotIndex:" + pIndex);
+            TutorialMod.LOGGER.info("Invalid slotIndex: {}", pIndex);
             return ItemStack.EMPTY;
         }
         // If stack size == 0 (the entire stack was moved) set slot contents to null

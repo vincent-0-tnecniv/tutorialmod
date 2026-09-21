@@ -2,6 +2,7 @@ package com.vincent.tutorialmod.datagen.worldgen;
 
 import com.vincent.tutorialmod.TutorialMod;
 import com.vincent.tutorialmod.block.ModBlocks;
+import com.vincent.tutorialmod.datagen.worldgen.tree.InvertedPyramidFoliagePlacer;
 import com.vincent.tutorialmod.datagen.worldgen.tree.SpiralTrunkPlacer;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -19,9 +20,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
@@ -62,7 +61,8 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.simple(
                         ModBlocks.DRIFTWOOD_LEAVES.get() // the LEAVES of the tree
                 ),
-                new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(3), 3),
+                new InvertedPyramidFoliagePlacer(ConstantInt.of(6), ConstantInt.of(1), 3),
+                // new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(3), 3),
 
                 new TwoLayersFeatureSize(1, 0, 2),
                 // the minimum bounding box for the sapling to grow as a tree

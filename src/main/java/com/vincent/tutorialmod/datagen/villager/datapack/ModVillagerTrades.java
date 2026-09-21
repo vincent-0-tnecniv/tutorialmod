@@ -91,7 +91,11 @@ public class ModVillagerTrades {
         return VillagerTrades.enchantedBook(context.lookup(Registries.ITEM), HolderSet.direct(context.lookup(Registries.ENCHANTMENT).getOrThrow(enchantment)));
     }
 
+    // The compiler is already stopping users from using other data types
+    // No possiblity of heap pollution
+    @SafeVarargs
     protected static List<LootItemFunction> enchantedBook(BootstrapContext<VillagerTrade> context, ResourceKey<Enchantment>... enchantments) {
+
         var enchantmentsList = context.lookup(Registries.ENCHANTMENT);
         List<Holder<Enchantment>> holder = new ArrayList<>();
         for(ResourceKey<Enchantment> enchantment : enchantments) {

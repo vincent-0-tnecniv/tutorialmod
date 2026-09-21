@@ -59,12 +59,12 @@ public record CrystallizerRecipe(Ingredient inputItem, ItemStackTemplate output)
 
     @Override
     public RecipeSerializer<? extends Recipe<CrystallizerRecipeInput>> getSerializer() {
-        return ModRecipes.CRYSTALLIZER_ST_PAIR.SERIALIZER.get();
+        return ModRecipes.CRYSTALLIZER_ST_PAIR.SERIALIZER().get();
     }
 
     @Override
     public RecipeType<? extends Recipe<CrystallizerRecipeInput>> getType() {
-        return ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE.get();
+        return ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE().get();
     }
 
     @Override

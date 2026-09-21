@@ -33,13 +33,13 @@ public class ModEquipmentAssetProvider implements DataProvider {
 
     @Override
     public CompletableFuture<?> run(CachedOutput cache) {
-        Map<ResourceKey<EquipmentAsset>, EquipmentClientInfo> equipmentAssets = new HashMap();
+        Map<ResourceKey<EquipmentAsset>, EquipmentClientInfo> equipmentAssets = new HashMap<>();
         bootstrap((id, asset) -> {
             if (equipmentAssets.putIfAbsent(id, asset) != null) {
                 throw new IllegalStateException("Tried to register equipment asset twice for id: " + id);
             }
         });
-        Codec var10001 = EquipmentClientInfo.CODEC;
+        Codec<EquipmentClientInfo> var10001 = EquipmentClientInfo.CODEC;
         PackOutput.PathProvider var10002 = this.pathProvider;
         Objects.requireNonNull(var10002);
         return DataProvider.saveAll(cache, var10001, var10002::json, equipmentAssets);

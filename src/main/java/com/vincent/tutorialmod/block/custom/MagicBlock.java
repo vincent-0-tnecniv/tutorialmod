@@ -1,6 +1,5 @@
 package com.vincent.tutorialmod.block.custom;
 
-import com.vincent.tutorialmod.item.ModItems;
 import com.vincent.tutorialmod.tags.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;

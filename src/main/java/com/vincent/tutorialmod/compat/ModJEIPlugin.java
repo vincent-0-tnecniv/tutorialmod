@@ -44,7 +44,7 @@ public class ModJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        registration.addRecipes(CRYSTALLIZER, this.getRecipes(syncedRecipes, ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE.get()));
+        registration.addRecipes(CRYSTALLIZER, this.getRecipes(syncedRecipes, ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE().get()));
         // add the recipes of that recipe type
     }
 
@@ -66,7 +66,7 @@ public class ModJEIPlugin implements IModPlugin {
         @SubscribeEvent
         public static void onDatapackSync(OnDatapackSyncEvent event) {
             event.sendRecipes(
-                    ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE.get()
+                    ModRecipes.CRYSTALLIZER_ST_PAIR.TYPE().get()
                     // add the recipe type here for data pack syncing
             );
         }
