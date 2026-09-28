@@ -1,7 +1,6 @@
 package com.vincent.tutorialmod;
 
 import com.vincent.tutorialmod.block.entity.renderer.ModBlockEntityRenderers;
-import com.vincent.tutorialmod.entity.ModEntityEvents;
 import com.vincent.tutorialmod.keymapping.ModKeyMappings;
 import com.vincent.tutorialmod.menu.ModScreens;
 import net.minecraft.client.Minecraft;
